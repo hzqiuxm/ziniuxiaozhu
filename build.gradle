@@ -1,0 +1,25 @@
+allprojects{
+    group = 'org.znxz'
+    version = '1.0'
+}
+
+subprojects{
+    apply plugin: 'java'
+
+    ext {
+        slf4jVersion = '1.7.7'
+    }
+
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+
+
