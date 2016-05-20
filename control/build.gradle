@@ -1,3 +1,7 @@
 project(':control'){
 
 }
+
+dependencies{
+    compile project(':service')
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="markdown.min.js" type="text/javascript"></script>
+<body>
+<textarea id="text-input" oninput="this.editor.update()"
+          rows="6" cols="60">Type **Markdown** here.</textarea>
+<div id="preview">here</div>
+<!--<button onclick="this.editor.update()"> 确认 </button>-->
+这种方法对代码格式语法高亮的展现不支持
+<script>
+    function Editor(input, preview) {
+        this.update = function () {
+            preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+    }
+    var $ = function (id) { return document.getElementById(id); };
+    new Editor($("text-input"), $("preview"));
+</script>
+</body>
+</html>

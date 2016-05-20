@@ -1,6 +1,6 @@
 rootProject.name = 'ziniuxiaozhu'
 include 'common'
-include 'modle'
+include 'model'
 include 'service'
 include 'webapp'
 include 'control'

@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  Welcome to 紫牛小筑!
   </body>
 </html>

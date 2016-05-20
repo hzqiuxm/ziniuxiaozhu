@@ -1,11 +1,39 @@
 project(':webapp'){
     apply plugin : 'war'
-    apply plugin: 'jetty'
+    //apply plugin: 'jetty'
 }
 
 
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.4"
+    }
+}
+
+apply plugin: "com.bmuschko.tomcat"
+
+
 dependencies {
+    compile project(':control')
+    providedCompile "javax:javaee-api:6.0"
     providedCompile 'javax.servlet:servlet-api:2.5'
     runtime 'javax.servlet:jstl:1.1.2'
 
+    def tomcatVersion = '7.0.47'
+//    compile group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '8.0.32'
+    tomcat "org.apache.tomcat:tomcat-catalina:${tomcatVersion}",
+            "org.apache.tomcat:tomcat-coyote:${tomcatVersion}",
+            "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+}
+
+tomcat {
+    httpPort = 8080
+    httpsPort = 8091
+    enableSSL = true
+    contextPath = '/'
 }

@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="Hosto, Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
+<meta name="description" content="Hosto" />
+<!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />-->
+<script type="text/javascript" src="/commons/js/commoncss.js"></script>
+<link rel="alternate" type="application/rss+xml" title="#" href="#" />
+<link rel="shortcut icon" href="#" />
+<script type="text/javascript" src="/commons/js/commonjs.js"></script>
+<script type='text/javascript'>
+	$(function() {    
+		$('.sociable li a img').tipsy({gravity: 'n'});		
+	});
+</script>
+<script type="text/javascript">
+	$(window).load(function() {
+		$('.flexslider').flexslider();
+	});
+</script>
+<script type="text/javascript">
+	jQuery(function($){
+		$("#tweet").tweet({
+			avatar_size: 32,
+			count: 2,
+		query: "themeforest",
+		loading_text: "Loading Tweets..."
+		});
+	});
+</script>
+<script type="text/javascript">
+  	// initialise plugins
+		jQuery(function(){
+			// Banners button
+			jQuery('ul.banners_cycle li').mouseenter(function(){
+				jQuery(this).find('.button').stop(false,true).fadeIn();
+			})
+			jQuery('ul.banners_cycle li').mouseleave(function(){
+				jQuery(this).find('.button').stop(false,true).fadeOut();
+			});
+			
+			// Banners
+			jQuery('ul.banners_cycle li:not(.style-1)').mouseenter(function(){
+				jQuery(this).css('z-index','6');
+				jQuery(this).stop(false, true).animate({right:'-64px'}, {easing:"swing", duration: 300});
+				jQuery(this).animate({right:'0'});
+			});
+			jQuery('ul.banners_cycle li:not(.style-1)').mouseleave(function(){
+				jQuery(this).stop(false, true).animate({right:'-64px'});
+				jQuery(this).stop(false, true).animate({right:'0'}, 'slow');
+			});
+			
+			// Banner #2
+			jQuery('ul.banners_cycle li.style-2').mouseleave(function(){
+				jQuery(this).css('z-index','5');
+			});
+			// Banner #3
+			jQuery('ul.banners_cycle li.style-3').mouseleave(function(){
+				jQuery(this).css('z-index','4');
+			});
+			// Banner #4
+			jQuery('ul.banners_cycle li.style-4').mouseleave(function(){
+				jQuery(this).css('z-index','3');
+			});
+			// Banner #5
+			jQuery('ul.banners_cycle li.style-5').mouseleave(function(){
+				jQuery(this).css('z-index','2');
+			});
+			// Banner #6
+			jQuery('ul.banners_cycle li.style-6').mouseenter(function(){
+				jQuery('body').css('overflow-x','hidden');
+			});
+			jQuery('ul.banners_cycle li.style-6').mouseleave(function(){
+				jQuery(this).css('z-index','1');
+				jQuery('body').css('overflow-x','hidden');
+			});
+		});
+  </script>
+<title>紫牛小筑</title>
+</head>
+<body>
+<IFRAME NAME="content_frame" scrolling = "no" marginwidth=0 marginheight=0 width=100%  SRC="/views/header.html"></IFRAME>
+    <select id = "responsive-main-nav-menu" onchange = "javascript:window.location.replace(this.value);">
+    </select>
+  <!--<div class="clear"></div>-->
+<!--WELCOME-->
+<div class="small-description-2">
+  <h2> <span> 【每周谏言】 </span></h2>
+  <label>专心做可以提升自己的事情，学习并拥有更多、更好的技能，成为一个值得交往的人 </label>
+  <label> 学会独善其身，以不给他人制造麻烦为美德，用自己的独立赢得尊重 </label>
+</div>
+<!--SITE CONTAINER-->
+<div id="container">
+  <!--SITE CONTENTS-->
+  <div id="contents-1" class="clear">
+    <!--SLIDER-->
+    <div id="slider" class="flexslider">
+      <ul class="slides">
+        <li><img src="/views/img/gallery/1.jpg" alt="" title="" />
+          <h2>- Get this Awesome Responsive Template</h2>
+          <p class="flex-caption">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+          <a href="#" class="round button-c1">read more</a> </li>
+        <li><img src="/views/img/gallery/2.jpg" alt="" title="" />
+          <div class="flex-caption-round">
+            <h2>- Awesome Template</h2>
+            <p class="flex-caption">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <a href="#" class="round button-c1">read more</a></div>
+        </li>
+        <li><img src="/views/img/gallery/3.jpg" alt="" title="" />
+          <h2>- Get this Awesome Responsive Template</h2>
+          <p class="flex-caption">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+          <a href="#" class="round button-c1">read more</a> </li>
+      </ul>
+    </div>
+    <div class="has-divider"></div>
+    <!--MAIN CONTENT-->
+    <div class="fullwidth">
+      <!--SERVICES-->
+      <div class="main-services clear">
+        <ul>
+          <li class="bt-30"> <img src="/views/img/icons/01_A.png" alt="" title="" />
+            <h4>100 GBit Network</h4>
+            <p>Lorem ipsum dolor sit amet, elscitere consectetur adipisicing elit, sed reser do eiusmod tempor incididunt receser labore et dolore magna aliqua.</p>
+            <a href="#">&mdash; read more &mdash;</a> </li>
+          <li class="bt-30 second"> <img src="/views/img/icons/02_A.png" alt="" title="" />
+            <h4>99.99% Uptime</h4>
+            <p>Lorem ipsum dolor sit amet, elscitere consectetur adipisicing elit, sed reser do eiusmod tempor incididunt receser labore et dolore magna aliqua.</p>
+            <a href="#">&mdash; read more &mdash;</a> </li>
+          <li class="bt-30-2"> <img src="/views/img/icons/03_A.png" alt="" title="" />
+            <h4>Reliable Hardware</h4>
+            <p>Lorem ipsum dolor sit amet, elscitere consectetur adipisicing elit, sed reser do eiusmod tempor incididunt receser labore et dolore magna aliqua.</p>
+            <a href="#">&mdash; read more &mdash;</a> </li>
+          <li class="last"> <img src="/views/img/icons/04_A.png" alt="" title="" />
+            <h4>Support Center</h4>
+            <p>Lorem ipsum dolor sit amet, elscitere consectetur adipisicing elit, sed reser do eiusmod tempor incididunt receser labore et dolore magna aliqua.</p>
+            <a href="#">&mdash; read more &mdash;</a> </li>
+        </ul>
+      </div>
+      <div class="has-divider"></div>
+      <!--Gallery & Tabs-->
+      <div class="home-rc clear">
+        <div class="fancy-text">
+          <h3>Our Clients</h3>
+          <p>Lorem ipsum dolor sit amet, tibique mi at dicant adolescens id vel, dicam invidunt torquatos duo ne.</p>
+          <a href="#">read more &mdash;</a> </div>
+        <!--Gallery-->
+        <div class="gallery four-columns clear">
+          <div id="carousel" class="es-carousel-wrapper nav-none">
+            <div class="es-carousel">
+              <ul>
+                <li><a href="/views/img/client/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client1.png" alt="" title="" /></a><a href="/views/img/client/large2.jpg" rel="gallery" class="m-bot3"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client2.png" alt="" title="" /></a></li>
+                <li><a href="/views/img/client/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client3.png" alt="" title="" /></a><a href="/views/img/client/large4.jpg" rel="gallery" class="m-bot3"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client4.png" alt="" title="" /></a></li>
+                <li><a href="/views/img/client/large5.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client5.png" alt="" title="" /></a><a href="/views/img/client/large6.jpg" rel="gallery" class="m-bot3"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client6.png" alt="" title="" /></a></li>
+                <li><a href="/views/img/client/large7.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client7.png" alt="" title="" /></a><a href="/views/img/client/large8.jpg" rel="gallery" class="m-bot3"><span class="rollover-zoom">&nbsp;</span><img src="/views/img/client/client8.png" alt="" title="" /></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="has-divider"></div>
+      <!--BANNER-->
+      <div class="clear">
+        <div class="fancy-text">
+          <h3>Our Services</h3>
+          <p>Lorem ipsum dolor sit amet, tibique mi at dicant adolescens id vel, dicam invidunt torquatos duo ne.</p>
+          <a href="#">read more &mdash;</a> </div>
+        <div id="widget_my_cyclewidget" class="clear">
+          <ul class="banners_cycle">
+            <li class="banners_item style-1 ">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Listen.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+            <li class="banners_item style-2 nomargin">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Analyze.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+            <li class="banners_item style-3 ">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Develop.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+            <li class="banners_item style-4 nomargin">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Integrate.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+            <li class="banners_item style-5 ">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Grow.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+            <li class="banners_item style-6 nomargin">
+              <div class="tail">
+                <div class="inner">
+                  <h4>Complete.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam adipiscing.</p>
+                  <a href="#" class="button">Read More</a> </div>
+              </div>
+            </li>
+          </ul>
+          <!-- end of photos_cycle -->
+        </div>
+      </div>
+      <div class="has-divider"></div>
+      <!--BLOG-->
+      <div class="blog blist clear">
+        <div class="fancy-text">
+          <h3>Latest Posts</h3>
+          <p>Lorem ipsum dolor sit amet, tibique mi at dicant adolescens id vel, dicam invidunt torquatos duo ne.</p>
+          <a href="#">read more &mdash;</a> </div>
+        <div id="carousel-home-blog" class="es-carousel-wrapper nav-none">
+          <div class="es-carousel">
+            <ul>
+              <li> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb2.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Marketing</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+              <li> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb3.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Express Manicure</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+              <li> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb4.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Express Pedicure</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+              <li> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb2.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Marketing</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+              <li> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb3.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Express Manicure</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+              <li class="last"> <a href="#" class="img-title"><span class="rollover-list">Read More</span><img src="/views/img/blog/bthumb4.jpg" alt="" title="" /></a>
+                <div class="desc">
+                  <h5><a href="#">Express Pedicure</a></h5>
+                  <p>Dicam invidunt torquatos duo ne, ut noluisse molestiae maiestatis...</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="has-divider"></div>
+      <!--Tagline-->
+      <div class="tagline">
+        <h2>你是一个拥有梦想的极客吗? 你是一个对未来充满渴望的人吗？</h2>
+        <p> 如果你不满现状，梦想有一个非常精彩的人生;自信且具有智力上的优越感; 崇尚平等,不迷信权威;拥有创新的精神;</p>
+        <a class="button-medium">We Want Your!</a></div>
+    </div>
+  </div>
+</div>
+<!--Footer-->
+<div id="footer" class="clear">
+  <!--BOTTOM COLUMNS-->
+  <div id="footer-columns" class="clear">
+    <div class="footer-wrapper">
+      <!--TAGS-->
+      <div class="tags">
+        <h5>Tag Cloud</h5>
+        <a href="#">博客</a><a href="#">培训</a> <a href="#">分享</a> <a href="#">工作</a> <a href="#">生活</a> <a href="#">互联网</a> <a href="#">云合同</a> </div>
+      <!--ARCHIVES-->
+      <div class="archive">
+        <h5>Archives</h5>
+      </div>
+      <!--ABOUT-->
+      <div class="about-brief">
+        <h5>Text Widget</h5>
+      </div>
+    </div>
+  </div>
+  <!--FOOTER-->
+  <div id="footer-bot">
+    <div class="footer-wrapper">
+      <label>&copy; 2016. 紫牛小筑. 浙ICP备16003595号-2  友情连接: <a href="http://www.hzqiuxm.com/" title="个人网站" target="_blank">临江仙-个人网站</a></label>
+    </div>
+  </div>
+</div>
+<a href="#" id="toTop">&uarr;</a>
+<!--<script type="text/javascript" src="js/custom.js"></script>-->
+<!--FOR PREVIEW ONLY-->
+<script type="text/javascript" src="/views/settings/styleswitch.js"></script>
+
+</body>
+</html>
