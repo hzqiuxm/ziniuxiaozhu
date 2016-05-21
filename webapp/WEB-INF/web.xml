@@ -12,7 +12,9 @@
             <param-value>com.znblog.config.CommonConfig</param-value>
         </init-param>
     </filter>
-
+    <!--<listener>-->
+        <!--<listener-class>com.sun.faces.config.ConfigureListener</listener-class>-->
+    <!--</listener>-->
     <filter-mapping>
         <filter-name>jfinal</filter-name>
         <url-pattern>/*</url-pattern>

@@ -1,0 +1,178 @@
+Table: lesson_eval
+----------------+------------------+------+-----+---------+---------
+ Field          | Type             | Null | Key | Default | Remarks 
+----------------+------------------+------+-----+---------+---------
+ id             | INT UNSIGNED(10) | NO   | PRI |         |         
+ lesson_plan_id | INT(10)          | YES  |     |         | 用于关联记录,和课程计划表关联
+ eval_des       | VARCHAR(5000)    | YES  |     |         |         
+ create_time    | DATETIME(19)     | YES  |     |         |         
+ state          | CHAR(2)          | YES  |     |         |         
+----------------+------------------+------+-----+---------+---------
+
+Table: lessons
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         |         
+ lesson_name | VARCHAR(100)  | YES  |     |         |         
+ lesson_type | CHAR(30)      | YES  |     |         |         
+ lesson_des  | VARCHAR(1000) | YES  |     |         |         
+ create_time | DATETIME(19)  | YES  |     |         |         
+ update_time | DATETIME(19)  | YES  |     |         |         
+ is_cycle    | CHAR(1)       | YES  |     |         | Y:可重复 N：不可重复
+ state       | CHAR(2)       | YES  |     |         | 0可选 1不可选
+ notes       | VARCHAR(255)  | YES  |     |         |         
+-------------+---------------+------+-----+---------+---------
+
+Table: lessons_plan
+----------------+------------------+------+-----+---------+---------
+ Field          | Type             | Null | Key | Default | Remarks 
+----------------+------------------+------+-----+---------+---------
+ id             | INT UNSIGNED(10) | NO   | PRI |         |         
+ lesson_name    | VARCHAR(100)     | YES  |     |         | 和课程表的名字对应，不是最后培训课程的名字。一般这个名字范围有些大
+ lesson_title   | VARCHAR(255)     | YES  |     |         | 本次课程具体的名字，由讲师自己填写的
+ lesson_des     | VARCHAR(1000)    | YES  |     |         | 讲师自己介绍本次课程主要内容，培训受众等
+ lesson_time    | DATE(10)         | YES  |     |         |         
+ lesson_teacher | VARCHAR(50)      | YES  |     |         |         
+ lesson_grade   | CHAR(1)          | YES  |     |         | 不及格，及格，中等，良好，优秀
+ lesson_score   | FLOAT(12)        | YES  |     |         | 听众给讲师打的分数，总分10分，这里取平均分.去除一个最高分去除一个最低分，剩余求平均分
+ lesson_place   | VARCHAR(255)     | YES  |     |         |         
+ create_time    | DATETIME(19)     | YES  |     |         |         
+ update_time    | DATETIME(19)     | YES  |     |         |         
+ state          | CHAR(2)          | YES  |     |         | 0：未开讲 1：已开讲
+ notes          | VARCHAR(255)     | YES  |     |         |         
+----------------+------------------+------+-----+---------+---------
+
+Table: lessons_type
+----------+--------------+------+-----+---------+---------
+ Field    | Type         | Null | Key | Default | Remarks 
+----------+--------------+------+-----+---------+---------
+ id       | INT(10)      | NO   | PRI |         |         
+ type_des | VARCHAR(255) | YES  |     |         |         
+ state    | CHAR(2)      | YES  |     |         |         
+ notes    | VARCHAR(255) | YES  |     |         |         
+----------+--------------+------+-----+---------+---------
+
+Table: user_base
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         |         
+ user_name   | VARCHAR(20)   | YES  |     |         | 用户登录的账号名称
+ user_pwd    | VARCHAR(20)   | YES  |     |         |         
+ sex         | CHAR(1)       | YES  |     |         |         
+ birthday    | DATE(10)      | YES  |     |         |         
+ introduce   | VARCHAR(2000) | YES  |     |         |         
+ addr        | VARCHAR(255)  | YES  |     |         |         
+ qq          | CHAR(12)      | YES  |     |         |         
+ mail        | VARCHAR(50)   | YES  |     |         |         
+ wx_id       | VARCHAR(50)   | YES  |     |         |         
+ real_name   | VARCHAR(50)   | YES  |     |         |         
+ choose_num  | INT(10)       | YES  |     |         | 剩余选课次数  
+ identity    | VARCHAR(50)   | YES  |     |         | 讲师身份类型，不同身份能选到课可能会有所区别
+ create_time | DATETIME(19)  | YES  |     |         |         
+ update_time | DATETIME(19)  | YES  |     |         |         
+ state       | CHAR(2)       | YES  |     |         |         
+ notes       | VARCHAR(255)  | YES  |     |         |         
+-------------+---------------+------+-----+---------+---------
+
+Table: zn_article
+-----------------+------------------+------+-----+---------+---------
+ Field           | Type             | Null | Key | Default | Remarks 
+-----------------+------------------+------+-----+---------+---------
+ id              | INT UNSIGNED(10) | NO   | PRI |         |         
+ Pcategory       | INT UNSIGNED(10) | YES  |     | 0       | 文章父类型，0表示没有父类型
+ category        | INT UNSIGNED(10) | YES  |     |         | 文章类型    
+ imgUrl          | VARCHAR(50)      | YES  |     |         | 文章配图    
+ title           | VARCHAR(50)      | YES  |     |         | 文章标题    
+ secondTitle     | VARCHAR(50)      | YES  |     |         | 文章副标题   
+ summary         | VARCHAR(500)     | YES  |     |         | 文章摘要或导读 
+ content         | TEXT(65535)      | YES  |     |         | 文章内容    
+ postTime        | DATETIME(19)     | YES  |     |         | 发布时间    
+ author          | VARCHAR(30)      | YES  |     |         | 作者      
+ commentCount    | INT UNSIGNED(10) | YES  |     |         | 评论次数    
+ readCount       | INT UNSIGNED(10) | YES  |     |         | 阅读次数    
+ smCount         | INT(10)          | YES  |     |         |         
+ lastUpdateTime  | DATETIME(19)     | YES  |     |         | 最后一次更新时间
+ accountId       | INT(10)          | YES  |     |         |         
+ accountName     | VARCHAR(40)      | YES  |     |         |         
+ lastAccountId   | INT(10)          | YES  |     |         |         
+ lastAccountName | VARCHAR(40)      | YES  |     |         |         
+ relPersonId     | INT(10)          | YES  |     |         |         
+ relPersonName   | VARCHAR(40)      | YES  |     |         |         
+ relCompanyId    | INT(10)          | YES  |     |         |         
+ relCompanyName  | VARCHAR(40)      | YES  |     |         |         
+ notes           | VARCHAR(50)      | YES  |     |         |         
+-----------------+------------------+------+-----+---------+---------
+
+Table: zn_comment
+-------------+------------------+------+-----+---------+---------
+ Field       | Type             | Null | Key | Default | Remarks 
+-------------+------------------+------+-----+---------+---------
+ id          | INT UNSIGNED(10) | NO   | PRI |         |         
+ content     | VARCHAR(500)     | YES  |     |         | 评论内容    
+ accountId   | INT UNSIGNED(10) | YES  |     |         | 评论者     
+ accountName | VARCHAR(40)      | YES  |     |         |         
+ postTime    | DATETIME(19)     | YES  |     |         | 评论发布时间  
+ articleId   | INT(10)          | YES  |     |         | 评论文章的ID 
+ forId       | INT(10)          | YES  |     |         | 针对哪个回复的ID
+ notes       | VARCHAR(50)      | YES  |     |         |         
+-------------+------------------+------+-----+---------+---------
+
+Table: zn_lessons
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI | 0       |         
+ lesson_name | VARCHAR(100)  | YES  |     |         |         
+ lesson_type | CHAR(30)      | YES  |     |         |         
+ lesson_des  | VARCHAR(1000) | YES  |     |         |         
+ create_time | DATETIME(19)  | YES  |     |         |         
+ update_time | DATETIME(19)  | YES  |     |         |         
+ is_cycle    | CHAR(1)       | YES  |     |         | Y:可重复 N：不可重复
+ state       | CHAR(2)       | YES  |     |         | 0可选 1不可选
+ notes       | VARCHAR(255)  | YES  |     |         |         
+-------------+---------------+------+-----+---------+---------
+
+Table: zn_lessons_plan
+----------------+------------------+------+-----+---------+---------
+ Field          | Type             | Null | Key | Default | Remarks 
+----------------+------------------+------+-----+---------+---------
+ id             | INT UNSIGNED(10) | NO   | PRI | 0       |         
+ lesson_name    | VARCHAR(100)     | YES  |     |         | 和课程表的名字对应，不是最后培训课程的名字。一般这个名字范围有些大
+ lesson_title   | VARCHAR(255)     | YES  |     |         | 本次课程具体的名字，由讲师自己填写的
+ lesson_des     | VARCHAR(1000)    | YES  |     |         | 讲师自己介绍本次课程主要内容，培训受众等
+ lesson_time    | DATE(10)         | YES  |     |         |         
+ lesson_teacher | VARCHAR(50)      | YES  |     |         |         
+ lesson_grade   | CHAR(1)          | YES  |     |         | 不及格，及格，中等，良好，优秀
+ lesson_score   | FLOAT(12)        | YES  |     |         | 听众给讲师打的分数，总分10分，这里取平均分.去除一个最高分去除一个最低分，剩余求平均分
+ lesson_place   | VARCHAR(255)     | YES  |     |         |         
+ create_time    | DATETIME(19)     | YES  |     |         |         
+ update_time    | DATETIME(19)     | YES  |     |         |         
+ state          | CHAR(2)          | YES  |     |         | 0：未开讲 1：已开讲
+ notes          | VARCHAR(255)     | YES  |     |         |         
+----------------+------------------+------+-----+---------+---------
+
+Table: zn_user_base
+---------------+------------------+------+-----+---------+---------
+ Field         | Type             | Null | Key | Default | Remarks 
+---------------+------------------+------+-----+---------+---------
+ id            | INT UNSIGNED(10) | NO   | PRI |         |         
+ userName      | VARCHAR(40)      | YES  |     |         |         
+ password      | VARCHAR(50)      | YES  |     |         |         
+ nickName      | VARCHAR(40)      | YES  |     |         | 昵称 花名 网名
+ sex           | BIT              | YES  |     |         |         
+ phone         | VARCHAR(20)      | YES  |     |         |         
+ qq            | VARCHAR(20)      | YES  |     |         |         
+ email         | VARCHAR(30)      | YES  |     |         |         
+ imgUrl        | VARCHAR(50)      | YES  |     |         | 头像      
+ permission    | INT UNSIGNED(10) | YES  |     | 0       | 权限 类型 1 admin 超管 2 normal 普通注册用户 3 editer 编辑',
+ loginTime     | DATETIME(19)     | YES  |     |         |         
+ loginIp       | VARCHAR(40)      | YES  |     |         |         
+ lastLoginTime | DATETIME(19)     | YES  |     |         |         
+ lastLoginIp   | VARCHAR(40)      | YES  |     |         |         
+ GMTCreat      | DATETIME(19)     | YES  |     |         |         
+ GMTExpire     | DATETIME(19)     | YES  |     |         |         
+ notes         | VARCHAR(50)      | YES  |     |         |         
+---------------+------------------+------+-----+---------+---------
+

@@ -1,6 +1,6 @@
 project(':webapp'){
     apply plugin : 'war'
-    //apply plugin: 'jetty'
+    apply plugin: 'jetty'
 }
 
 

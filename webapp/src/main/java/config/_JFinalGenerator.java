@@ -1,4 +1,4 @@
-package com.znblog.config;
+package config;
 
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
