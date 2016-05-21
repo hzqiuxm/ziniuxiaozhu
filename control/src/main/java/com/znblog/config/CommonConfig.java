@@ -1,4 +1,4 @@
-package config;
+package com.znblog.config;
 
 
 import com.jfinal.config.*;
@@ -29,7 +29,7 @@ public class CommonConfig extends JFinalConfig {
         // 设置视图类型为Jsp，否则默认为FreeMarker
         me.setViewType(ViewType.JSP);
         //设置view层的根目录
-        me.setBaseViewPath("/webapp/views");
+        me.setBaseViewPath("/views");
 //        me.setBaseViewPath("/");
         //设置404错误页面
         me.setError404View("404.html");
