@@ -8,10 +8,10 @@ import com.jfinal.core.Controller;
 public class BlogController extends Controller {
 
     public void index(){
-        System.out.println("11111111111111111111111111111111");
+        System.out.println("welcome to 紫牛小筑");
         render("index.jsp");
 
-        System.out.println("22222222222222222222222222222222");
+        System.out.println("wecome visited 紫牛小筑");
     }
 
     public void about_me(){
