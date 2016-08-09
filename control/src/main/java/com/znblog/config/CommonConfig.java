@@ -87,6 +87,9 @@ public class CommonConfig extends JFinalConfig {
         */
         // 所有配置在 MappingKit 中搞定
         _MappingKit.mapping(arp);
+        
+
+
 
     }
 
@@ -117,6 +120,7 @@ public class CommonConfig extends JFinalConfig {
     public void afterJFinalStart() {
         System.out.println("Jfinal启动后，启动自动调度线程......");
         super.afterJFinalStart();
+        Quartztest.main(new String[0]);
     }
 
     @Override

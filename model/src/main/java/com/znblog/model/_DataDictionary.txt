@@ -54,27 +54,28 @@ Table: lessons_type
 ----------+--------------+------+-----+---------+---------
 
 Table: user_base
--------------+---------------+------+-----+---------+---------
- Field       | Type          | Null | Key | Default | Remarks 
--------------+---------------+------+-----+---------+---------
- id          | INT(10)       | NO   | PRI |         |         
- user_name   | VARCHAR(20)   | YES  |     |         | 用户登录的账号名称
- user_pwd    | VARCHAR(20)   | YES  |     |         |         
- sex         | CHAR(1)       | YES  |     |         |         
- birthday    | DATE(10)      | YES  |     |         |         
- introduce   | VARCHAR(2000) | YES  |     |         |         
- addr        | VARCHAR(255)  | YES  |     |         |         
- qq          | CHAR(12)      | YES  |     |         |         
- mail        | VARCHAR(50)   | YES  |     |         |         
- wx_id       | VARCHAR(50)   | YES  |     |         |         
- real_name   | VARCHAR(50)   | YES  |     |         |         
- choose_num  | INT(10)       | YES  |     |         | 剩余选课次数  
- identity    | VARCHAR(50)   | YES  |     |         | 讲师身份类型，不同身份能选到课可能会有所区别
- create_time | DATETIME(19)  | YES  |     |         |         
- update_time | DATETIME(19)  | YES  |     |         |         
- state       | CHAR(2)       | YES  |     |         |         
- notes       | VARCHAR(255)  | YES  |     |         |         
--------------+---------------+------+-----+---------+---------
+--------------------+---------------+------+-----+---------+---------
+ Field              | Type          | Null | Key | Default | Remarks 
+--------------------+---------------+------+-----+---------+---------
+ id                 | INT(10)       | NO   | PRI |         |         
+ user_name          | VARCHAR(20)   | YES  |     |         | 用户登录的账号名称
+ user_pwd           | VARCHAR(20)   | YES  |     |         |         
+ sex                | CHAR(1)       | YES  |     |         |         
+ birthday           | DATE(10)      | YES  |     |         |         
+ introduce          | VARCHAR(2000) | YES  |     |         |         
+ addr               | VARCHAR(255)  | YES  |     |         |         
+ qq                 | CHAR(12)      | YES  |     |         |         
+ mail               | VARCHAR(50)   | YES  |     |         |         
+ wx_id              | VARCHAR(50)   | YES  |     |         |         
+ real_name          | VARCHAR(50)   | YES  |     |         |         
+ choose_num         | INT(10)       | YES  |     |         | 剩余选课次数  
+ identity           | VARCHAR(50)   | YES  |     |         | 讲师身份类型，不同身份能选到课可能会有所区别
+ create_time        | DATETIME(19)  | YES  |     |         |         
+ update_time        | DATETIME(19)  | YES  |     |         |         
+ state              | CHAR(2)       | YES  |     |         |         
+ notes              | VARCHAR(255)  | YES  |     |         |         
+ noweekreport_times | INT(10)       | YES  |     | 0       |         
+--------------------+---------------+------+-----+---------+---------
 
 Table: zn_article
 -----------------+------------------+------+-----+---------+---------
@@ -118,6 +119,18 @@ Table: zn_comment
  forId       | INT(10)          | YES  |     |         | 针对哪个回复的ID
  notes       | VARCHAR(50)      | YES  |     |         |         
 -------------+------------------+------+-----+---------+---------
+
+Table: zn_judge
+----------------------+---------------+------+-----+---------+---------
+ Field                | Type          | Null | Key | Default | Remarks 
+----------------------+---------------+------+-----+---------+---------
+ id                   | INT(10)       | NO   | PRI |         |         
+ judge_weekreports_id | INT(10)       | YES  |     |         |         
+ judge_critic         | VARCHAR(20)   | YES  |     |         |         
+ judge_reply          | VARCHAR(20)   | YES  |     |         |         
+ judge_message        | VARCHAR(1000) | YES  |     |         |         
+ judge_time           | DATETIME(19)  | YES  |     |         |         
+----------------------+---------------+------+-----+---------+---------
 
 Table: zn_lessons
 -------------+---------------+------+-----+---------+---------
@@ -175,4 +188,17 @@ Table: zn_user_base
  GMTExpire     | DATETIME(19)     | YES  |     |         |         
  notes         | VARCHAR(50)      | YES  |     |         |         
 ---------------+------------------+------+-----+---------+---------
+
+Table: zn_weekreports
+---------------------+---------------+------+-----+---------+---------
+ Field               | Type          | Null | Key | Default | Remarks 
+---------------------+---------------+------+-----+---------+---------
+ id                  | INT(10)       | NO   | PRI |         |         
+ reporter_writer     | VARCHAR(20)   | YES  |     |         |         
+ reporter_thisweek   | VARCHAR(1000) | YES  |     |         |         
+ reporter_nextweek   | VARCHAR(1000) | YES  |     |         |         
+ reporter_difficulty | VARCHAR(1000) | YES  |     |         |         
+ reporter_stars      | INT(10)       | YES  |     |         |         
+ reporter_time       | DATETIME(19)  | YES  |     |         |         
+---------------------+---------------+------+-----+---------+---------
 

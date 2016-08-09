@@ -563,7 +563,7 @@ label.error { display: none !important; }
 
 .tags, .archive, .tweet { float: left; margin-right: 27px; width: 195px; }
 
-.tags a:link, .tags a:visited { background: url("img/patterns/hash.png") repeat scroll left top rgba(0, 0, 0, 0.01); color: #666; border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; box-shadow: 0 1px 1px #C7C7C7; -webkit-box-shadow:  0 1px 1px #C7C7C7; -moz-box-shadow:  0 1px 1px #C7C7C7; behavior: url(js/PIE.htc); display: inline-block; margin-bottom: 3px; padding: 2px 6px; text-shadow: 0 1px 1px #FFFFFF; }
+.tags a:link, .tags a:visited,#confirm,#cancel { background: url("img/patterns/hash.png") repeat scroll left top rgba(0, 0, 0, 0.01); color: #666; border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; box-shadow: 0 1px 1px #C7C7C7; -webkit-box-shadow:  0 1px 1px #C7C7C7; -moz-box-shadow:  0 1px 1px #C7C7C7; behavior: url(js/PIE.htc); display: inline-block; margin-bottom: 3px; padding: 2px 6px; text-shadow: 0 1px 1px #FFFFFF; }
 
 .tags a:hover { background: none repeat scroll 0 0 #666; color: #FFFFFF; text-shadow: 0 0 0 #FFFFFF; }
 
@@ -2002,3 +2002,11 @@ Price Table Start
  behavior: url(js/PIE.htc);
 }
 }
+
+
+#center-div {width: 230px;box-shadow:0 2px 6px 0 rgba(0,0,0,.15);padding:10px;color:#bbb;}
+#center-div i{font:normal normal normal 14px/1 FontAwesome;padding-right:4px;}
+.login-input{height:44px;border:1px solid #bbb;border-radius:3px;line-height: 44px;}
+
+#login-login i::before{content:"\f090";}
+#login-pwd i::before{content:"\f11c";}
