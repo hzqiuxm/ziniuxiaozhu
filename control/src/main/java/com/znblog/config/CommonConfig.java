@@ -54,6 +54,7 @@ public class CommonConfig extends JFinalConfig {
         me.add("/blog", BlogController.class);
         me.add("/lesson", LessonController.class);
         me.add("/lessonPlan", LessonPlanController.class);
+        me.add("/weekreport",WeekReportController.class);
         //前后端路由分开
         //me.add(new 前端配置类());
         //me.add(new 后端配置类());
@@ -86,6 +87,9 @@ public class CommonConfig extends JFinalConfig {
         */
         // 所有配置在 MappingKit 中搞定
         _MappingKit.mapping(arp);
+        
+
+
 
     }
 
@@ -116,6 +120,7 @@ public class CommonConfig extends JFinalConfig {
     public void afterJFinalStart() {
         System.out.println("Jfinal启动后，启动自动调度线程......");
         super.afterJFinalStart();
+        Quartztest.main(new String[0]);
     }
 
     @Override
