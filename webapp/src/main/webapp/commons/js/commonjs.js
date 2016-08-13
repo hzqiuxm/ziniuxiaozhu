@@ -3,8 +3,9 @@
  */
 //公用的JS
 
-//document.write('<script src="/plugins/jquery/jquery-1.11.1.min.js"></script>');
 document.write('<script src="/views/js/jquery-1.7.2.min.js"></script>');
+document.write('<script src="/bower_components/angular/angular.min.js"></script>');
+//document.write('<script src="/bower_components/jquery/dist/jquery.js"></script>')
 document.write('<script src="/views/js/nav-small.js"></script>');
 document.write('<script src="/views/js/jquery.trigger.js"></script>');
 document.write('<script src="/views/js/scrolltop.js"></script>');
@@ -30,7 +31,8 @@ document.write('<script src="/views/js/flexslider/jquery.flexslider.js"></script
 document.write('<script src="/views/js/jquery.tweet.js"></script>');
 document.write('<script src="/views/js/jquery-ui-1.7.2.custom.min.js"></script>');
 //document.write('<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>');
-
+//add project js
+document.write('<script src="/views/js/common/index.js"></script>');
 
 
 

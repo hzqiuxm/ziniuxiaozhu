@@ -17,7 +17,7 @@
 ;(function($) {
 
 var ver = '2.32';
-var ie6 = $.browser.msie && /MSIE 6.0/.test(navigator.userAgent);
+var ie6 =  /MSIE 6.0/.test(navigator.userAgent);
 
 function log() {
 	if (window.console && window.console.log)

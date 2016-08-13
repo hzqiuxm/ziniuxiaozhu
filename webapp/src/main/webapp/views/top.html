@@ -1,10 +1,5 @@
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Title</title>-->
-    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
-    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
-<!--</head>-->
-<!--<body>-->
+<!DOCTYPE html>
+<html lang="en">
 <div class="container-wrap" id="cap"></div>
 <!--HEADER-->
 <div id="header" class="clear">
@@ -16,12 +11,12 @@
         <!--MENU-->
         <nav id = "main-nav-menu">
             <ul class="sf-menu sf-js-enabled">
-                <li id="onepage" class="active"><a href="index.html" target="_self">小筑首页</a></li>
+                <li id="onepage"><a href="index.html" target="_self">小筑首页</a></li>
                 <li id="twopage"><a href="#">团队组成</a></li>
                 <li id="threepage"> <a href="#">小筑公告</a></li>
-                <li id="fourpage"><a href="/blog" target="_parent">小筑培训</a>
+                <li id="fourpage" class="active"><a href="/blog" target="_parent">小筑培训</a>
                     <ul>
-                        <li><a href="/views/choose-lessons.html" target="_parent">开始选课</a></li>
+                        <li><a href="/views/choose-lessons.html" target="_parent">开始选课{{test}}</a></li>
                         <!--<li><a href="/views/week-report.html" target="_parent">开始选课</a></li>-->
                     </ul>
                 </li>
@@ -35,9 +30,7 @@
             </ul>
         </nav>
         <!-- end menu -->
-        </div>
-    <div class="clear"></div>
     </div>
-
-<!--</body>-->
-<!--</html>-->
+    <div class="clear"></div>
+</div>
+</html>

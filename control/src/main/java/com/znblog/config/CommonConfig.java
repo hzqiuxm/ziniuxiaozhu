@@ -120,7 +120,7 @@ public class CommonConfig extends JFinalConfig {
     public void afterJFinalStart() {
         System.out.println("Jfinal启动后，启动自动调度线程......");
         super.afterJFinalStart();
-        Quartztest.main(new String[0]);
+//        Quartztest.main(new String[0]);
     }
 
     @Override

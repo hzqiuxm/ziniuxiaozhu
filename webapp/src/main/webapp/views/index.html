@@ -1,94 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" ng-app="zn-index">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="Hosto, Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
-<meta name="description" content="Hosto" />
+<meta name="keywords" content="紫牛小筑, IT, 培训, 博客, 极客, 个人网站, hzqiuxm" />
+<meta name="description" content="紫牛小筑" />
 <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />-->
 <script type="text/javascript" src="/commons/js/commoncss.js"></script>
-<link rel="alternate" type="application/rss+xml" title="#" href="#" />
-<link rel="shortcut icon" href="#" />
 <script type="text/javascript" src="/commons/js/commonjs.js"></script>
-<script type='text/javascript'>
-	$(function() {    
-		$('.sociable li a img').tipsy({gravity: 'n'});		
-	});
-</script>
-<script type="text/javascript">
-	$(window).load(function() {
-		$('.flexslider').flexslider();
-	});
-</script>
-<script type="text/javascript">
-	jQuery(function($){
-		$("#tweet").tweet({
-			avatar_size: 32,
-			count: 2,
-		query: "themeforest",
-		loading_text: "Loading Tweets..."
-		});
-	});
-</script>
-<script type="text/javascript">
-  	// initialise plugins
-		jQuery(function(){
-			// Banners button
-			jQuery('ul.banners_cycle li').mouseenter(function(){
-				jQuery(this).find('.button').stop(false,true).fadeIn();
-			})
-			jQuery('ul.banners_cycle li').mouseleave(function(){
-				jQuery(this).find('.button').stop(false,true).fadeOut();
-			});
-			
-			// Banners
-			jQuery('ul.banners_cycle li:not(.style-1)').mouseenter(function(){
-				jQuery(this).css('z-index','6');
-				jQuery(this).stop(false, true).animate({right:'-64px'}, {easing:"swing", duration: 300});
-				jQuery(this).animate({right:'0'});
-			});
-			jQuery('ul.banners_cycle li:not(.style-1)').mouseleave(function(){
-				jQuery(this).stop(false, true).animate({right:'-64px'});
-				jQuery(this).stop(false, true).animate({right:'0'}, 'slow');
-			});
-			
-			// Banner #2
-			jQuery('ul.banners_cycle li.style-2').mouseleave(function(){
-				jQuery(this).css('z-index','5');
-			});
-			// Banner #3
-			jQuery('ul.banners_cycle li.style-3').mouseleave(function(){
-				jQuery(this).css('z-index','4');
-			});
-			// Banner #4
-			jQuery('ul.banners_cycle li.style-4').mouseleave(function(){
-				jQuery(this).css('z-index','3');
-			});
-			// Banner #5
-			jQuery('ul.banners_cycle li.style-5').mouseleave(function(){
-				jQuery(this).css('z-index','2');
-			});
-			// Banner #6
-			jQuery('ul.banners_cycle li.style-6').mouseenter(function(){
-				jQuery('body').css('overflow-x','hidden');
-			});
-			jQuery('ul.banners_cycle li.style-6').mouseleave(function(){
-				jQuery(this).css('z-index','1');
-				jQuery('body').css('overflow-x','hidden');
-			});
-		});
-  </script>
+
 <title>紫牛小筑</title>
 </head>
-<body>
-<IFRAME NAME="content_frame" scrolling = "no" marginwidth=0 marginheight=0 width=100%  SRC="/views/header.html"></IFRAME>
-    <select id = "responsive-main-nav-menu" onchange = "javascript:window.location.replace(this.value);">
-    </select>
-  <!--<div class="clear"></div>-->
+<body ng-controller="nanController">
+<!--<IFRAME NAME="content_frame" scrolling = "no" marginwidth=0 marginheight=0 width=100%  SRC="/views/header.html"></IFRAME>-->
+    <!--<select id = "responsive-main-nav-menu" onchange = "javascript:window.location.replace(this.value);"></select>-->
+<div ng-include="'/views/top.html'"></div>
 <!--WELCOME-->
 <div class="small-description-2">
   <h2> <span> 【每周谏言】 </span></h2>
-  <label>The proper function of man is to live, not to exist </label>
-  <label> 人生的意义在于生活而不是生存 </label>
+  <label>{{ thisweek.english }}</label>
+  <label> {{thisweek.chinese}} </label>
 </div>
 <!--SITE CONTAINER-->
 <div id="container">
@@ -308,6 +238,7 @@
 <!--<script type="text/javascript" src="js/custom.js"></script>-->
 <!--FOR PREVIEW ONLY-->
 <script type="text/javascript" src="/views/settings/styleswitch.js"></script>
+<script src="/views/js/common/week-nan.js"></script>
 
 </body>
 </html>
