@@ -5,6 +5,7 @@ import com.jfinal.config.*;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.render.ViewType;
 import com.znblog.controller.*;
 import com.znblog.model._MappingKit;
@@ -77,6 +78,10 @@ public class CommonConfig extends JFinalConfig {
         // 配置ActiveRecord插件
         ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
         me.add(arp);
+
+        //配置redis插件
+        RedisPlugin redisPlugin = new RedisPlugin("rp","192.168.10.56");
+        me.add(redisPlugin);
 
         /* 2.1以后不需要配置表盒模型的映射关系
         //建立表和模型的映射关系，例如：映射user_base表到 UserBase模型

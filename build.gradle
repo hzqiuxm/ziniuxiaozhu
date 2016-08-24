@@ -80,6 +80,9 @@ subprojects{
         compile group: 'javax.servlet', name: 'jstl', version: '1.2'
         //单元测试
         testCompile group: 'junit', name: 'junit', version: '4.12'
+        // https://mvnrepository.com/artifact/de.ruedigermoeller/fst
+//        compile group: 'de.ruedigermoeller', name: 'fst', version: '2.45'
+
     }
 }
 

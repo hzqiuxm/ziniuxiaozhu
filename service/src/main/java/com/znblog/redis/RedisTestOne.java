@@ -21,6 +21,7 @@ public class RedisTestOne {
         //从连接池获取一个连接
         Jedis jedis = jp.getResource();
 
+        jedis.set("k1","value1");
         String s1 = jedis.get("k1");
 
         //归还连接池
