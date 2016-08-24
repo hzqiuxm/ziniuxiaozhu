@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang ="en" ng-app="lessons_lists">
+<head>
+    <meta charset="UTF-8">
+    <title>紫牛小筑选课系统</title>
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+
+    <script type='text/javascript'>
+        $(function() {
+            $('.sociable li a img').tipsy({gravity: 'n'});
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function($){
+            $("#tweet").tweet({
+                avatar_size: 32,
+                count: 2,
+                query: "themeforest",
+                loading_text: "Loading Tweets..."
+            });
+        });
+    </script>
+    <title>Hosto</title>
+</head>
+<body ng-controller="lesssonsController">
+<div ng-include="'/views/top.html'"></div>
+        <select id = "responsive-main-nav-menu" onchange = "javascript:window.location.replace(this.value);">
+        </select>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--WELCOME-->
+<div class="heading-top">
+    <h2>伟大的 <span>XXXXXX</span></h2>
+    <div id="myslides1">
+        <label>&mdash; The Extensio is a simple and clean template suitable for companies </label>
+        <label>&mdash; Welcome to our website - a Business HTML Template</label>
+        <label>&mdash; We design, develop and deliver beautiful websites and mobile applications.</label>
+        <label>&mdash; Welcome to our website - a Business HTML Template</label>
+    </div>
+</div>
+<!--SITE CONTAINER-->
+<div id="container">
+    <!--SITE CONTENTS-->
+    <div id="contents" class="clear">
+        <!--MAIN CONTENT-->
+        <div class="fullwidth">
+            <div class="padding-1">
+                <!--GALLERY 3 COLUMN PAGE-->
+                <div class="welcome">
+                    <h2>{{data}}</h2>
+                    <h2>{{status}}</h2>
+                    <button ng-click="getinfo()">测试angular的http</button>
+                    <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
+                </div>
+                <!--GALLERY-->
+                <div class="gallery three-columns clear">
+                    <ul id="portfolio-filter">
+                        <li><a href="#creative-design" title="" rel="creative-design">Creative</a></li>
+                        <li><a href="#template-design" title="" rel="template-design">Template</a></li>
+                        <li><a href="#logo-design" title="" rel="logo-design">Logo</a></li>
+                        <li><a href="#design" title="" rel="design">Design</a></li>
+                        <li><a href="#all" title="">All</a></li>
+                    </ul>
+                    <ul id="portfolio-list">
+                        <li class="design"><a href="img/gallery/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-1.jpg" alt="" title="" /></a></li>
+                        <li class="logo-design"><a href="img/gallery/large2.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-2.jpg" alt="" title="" /></a></li>
+                        <li class="template-design"><a href="img/gallery/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-3.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design logo-design"><a href="img/gallery/large4.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-4.jpg" alt="" title="" /></a></li>
+                        <li class="design"><a href="img/gallery/large5.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-5.jpg" alt="" title="" /></a></li>
+                        <li class="design creative-design"><a href="img/gallery/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-1.jpg" alt="" title="" /></a></li>
+                        <li class="logo-design"><a href="img/gallery/large2.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-2.jpg" alt="" title="" /></a></li>
+                        <li class="template-design logo-design"><a href="img/gallery/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-3.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design"><a href="img/gallery/large4.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-4.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design"><a href="img/gallery/large5.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-5.jpg" alt="" title="" /></a></li>
+                        <li class="design template-design"><a href="img/gallery/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-1.jpg" alt="" title="" /></a></li>
+                        <li class="logo-design"><a href="img/gallery/large2.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-2.jpg" alt="" title="" /></a></li>
+                        <li class="template-design"><a href="img/gallery/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-3.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design"><a href="img/gallery/large4.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-4.jpg" alt="" title="" /></a></li>
+                        <li class="design logo-design"><a href="img/gallery/large5.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-5.jpg" alt="" title="" /></a></li>
+                        <li class="ogo-design"><a href="img/gallery/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-1.jpg" alt="" title="" /></a></li>
+                        <li class="logo-design"><a href="img/gallery/large2.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-2.jpg" alt="" title="" /></a></li>
+                        <li class="template-design"><a href="img/gallery/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-3.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design template-design"><a href="img/gallery/large4.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-4.jpg" alt="" title="" /></a></li>
+                        <li class="design"><a href="img/gallery/large5.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-5.jpg" alt="" title="" /></a></li>
+                        <li class="design"><a href="img/gallery/large1.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-1.jpg" alt="" title="" /></a></li>
+                        <li class="logo-design template-design"><a href="img/gallery/large2.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-2.jpg" alt="" title="" /></a></li>
+                        <li class="template-design creative-design"><a href="img/gallery/large3.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-3.jpg" alt="" title="" /></a></li>
+                        <li class="creative-design"><a href="img/gallery/large4.jpg" rel="gallery"><span class="rollover-zoom">&nbsp;</span><img src="img/gallery/gall-full-3-4.jpg" alt="" title="" /></a></li>
+                    </ul>
+                </div>
+                <!--NOTIFY-->
+                <div class="notify clear">
+                    <h2>如果你是伟大的紫牛小筑讲师，你可以在这里进行选课,期待你的精彩课程！</h2>
+                    <span><a href="#" class="btn">我要选课</a></span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="footer-bot">
+        <div class="footer-wrapper">
+            <label>&copy; 2016. 紫牛小筑. 浙ICP备16003595号-2  友情连接: <a href="http://www.hzqiuxm.com/" title="个人网站" target="_blank">临江仙-个人网站</a></label>
+        </div>
+    </div>
+</div>
+<a href="#" id="toTop">&uarr;</a>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--FOR PREVIEW ONLY-->
+<script type="text/javascript" src="settings/styleswitch.js"></script>
+<script src="/views/js/common/lessons-list.js"></script>
+
+</body>
+</html>
