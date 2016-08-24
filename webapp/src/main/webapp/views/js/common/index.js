@@ -4,9 +4,9 @@
 $(function () {
     $('.sociable li a img').tipsy({gravity: 'n'});
 });
-$(window).load(function () {
+window.load=function () {
     $('.flexslider').flexslider();
-});
+};
 
 jQuery(function ($) {
     $("#tweet").tweet({

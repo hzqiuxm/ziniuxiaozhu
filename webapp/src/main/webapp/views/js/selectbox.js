@@ -1,4 +1,4 @@
-$(window).load(function() {
+window.load=function() {
 	// Create the dropdown base
 	$("<select />").appendTo(".menu");
 
@@ -25,4 +25,4 @@ $(window).load(function() {
 	$(".menu select").change(function() {
 	window.location = $(this).find("option:selected").val();
 	});
-});
+};
