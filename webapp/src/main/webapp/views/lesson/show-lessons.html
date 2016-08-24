@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zn-choose">
+<head>
+    <meta charset="UTF-8">
+    <title>紫牛小筑选课计划</title>
+
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+    <script>
+        function checksession(){
+            $.ajax({
+                url: '/weekreport/checksession',
+                type: 'POST',
+                dataType: 'html',
+                timeout: 1000,
+                error: function(){console.log('Error loading document');},
+                success: function(result){
+                    if(result=="success"){
+                    }else{
+                        location.href="/views/week-report.html#lesson/show-lessons";
+                    }
+                }
+            });
+        }
+        checksession();
+    </script>
+</head>
+<body ng-controller="chooseController">
+    <div ng-include="'/views/top.html'"></div>
+
+    <div id="container">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstracptable/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrapdatepicker/bootstrap-datepicker-1.3.1.min.css">
+    <link rel="stylesheet" href="/plugins/sweetalert/sweetalert.css">
+
+    <style>
+        .container{width:auto;}
+        h1{margin: 0px;}
+        body{font:11px/1.8em 'Open Sans', Arial, Tahoma, sans-serif;}
+    </style>
+    <div class="container">
+        <div id="toolbar">
+            <div class="row">
+                <div><div class="bg-success">提示:双击数据行可以编辑课程详情</div></div>
+            </div>
+        </div>
+        <table id="lesson_plan"
+               class="table table-striped"
+               data-toggle="table"
+               data-toolbar="#toolbar"
+               data-search="true"
+               data-show-refresh="true"
+               data-show-toggle="true"
+               data-show-columns="true"
+               data-show-export="true"
+               data-detail-view="true"
+               data-detail-formatter="detailFormatter"
+               data-minimum-count-columns="2"
+               data-show-pagination-switch="true"
+               data-page-list="[10, 15, 20, 50, All]"
+               data-pagination="true"
+               data-page-size="10"
+               data-id-field="id"
+               data-show-footer="true"
+               data-url="/lessonPlan/getLessonPlan">
+            <thead>
+            <tr>
+                <th data-field="lesson_teacher" data-align="center" >主讲教师</th>
+                <th data-field="lesson_name" data-align="center">选题名称</th>
+                <th data-field="lesson_title" data-align="center">课程名称</th>
+                <th data-field="lesson_type" data-align="center" data-sortable="true" >课程类型</th>
+                <th data-field="state" data-align="center" data-formatter="stateFormatter">讲课状态</th>
+                <th data-field="lesson_time">讲课时间</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+<!--bootstrap-->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table-zh-CN.min.js"></script>
+<script src="/plugins/bootstrapdatepicker/bootstrap-datepicker-1.3.1.min.js"></script>
+<script src="/plugins/bootstrapdatepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/plugins/bootbox/bootbox-4.3.0.min.js"></script>
+
+<script src="/views/js/common/show-lessons.js"></script>

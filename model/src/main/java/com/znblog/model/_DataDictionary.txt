@@ -120,12 +120,24 @@ Table: zn_comment
  notes       | VARCHAR(50)      | YES  |     |         |         
 -------------+------------------+------+-----+---------+---------
 
+Table: zn_discuss
+-------------------+---------------+------+-----+---------+---------
+ Field             | Type          | Null | Key | Default | Remarks 
+-------------------+---------------+------+-----+---------+---------
+ id                | INT(10)       | NO   | PRI |         |         
+ discuss_report_id | INT(10)       | YES  |     | 0       |         
+ discuss_critic    | VARCHAR(20)   | YES  |     |         |         
+ discuss_reply     | VARCHAR(20)   | YES  |     |         |         
+ discuss_message   | VARCHAR(1000) | YES  |     |         |         
+ discuss_time      | DATETIME(19)  | YES  |     |         |         
+-------------------+---------------+------+-----+---------+---------
+
 Table: zn_judge
 ----------------------+---------------+------+-----+---------+---------
  Field                | Type          | Null | Key | Default | Remarks 
 ----------------------+---------------+------+-----+---------+---------
  id                   | INT(10)       | NO   | PRI |         |         
- judge_weekreports_id | INT(10)       | YES  |     |         |         
+ judge_weekreports_id | INT(10)       | YES  |     | 0       |         
  judge_critic         | VARCHAR(20)   | YES  |     |         |         
  judge_reply          | VARCHAR(20)   | YES  |     |         |         
  judge_message        | VARCHAR(1000) | YES  |     |         |         
@@ -189,16 +201,27 @@ Table: zn_user_base
  notes         | VARCHAR(50)      | YES  |     |         |         
 ---------------+------------------+------+-----+---------+---------
 
+Table: zn_weekly_report
+-------------------+---------------+------+-----+---------+---------
+ Field             | Type          | Null | Key | Default | Remarks 
+-------------------+---------------+------+-----+---------+---------
+ id                | INT(10)       | NO   | PRI |         |         
+ report_writer     | VARCHAR(20)   | YES  |     |         |         
+ report_this_week  | VARCHAR(1000) | YES  |     |         |         
+ report_next_week  | VARCHAR(1000) | YES  |     |         |         
+ report_difficulty | VARCHAR(1000) | YES  |     |         |         
+ report_time       | DATETIME(19)  | YES  |     |         |         
+-------------------+---------------+------+-----+---------+---------
+
 Table: zn_weekreports
 ---------------------+---------------+------+-----+---------+---------
  Field               | Type          | Null | Key | Default | Remarks 
 ---------------------+---------------+------+-----+---------+---------
- id                  | INT(10)       | NO   | PRI |         |         
+ ID                  | INT(10)       | NO   | PRI |         |         
  reporter_writer     | VARCHAR(20)   | YES  |     |         |         
  reporter_thisweek   | VARCHAR(1000) | YES  |     |         |         
  reporter_nextweek   | VARCHAR(1000) | YES  |     |         |         
  reporter_difficulty | VARCHAR(1000) | YES  |     |         |         
- reporter_stars      | INT(10)       | YES  |     |         |         
  reporter_time       | DATETIME(19)  | YES  |     |         |         
 ---------------------+---------------+------+-----+---------+---------
 

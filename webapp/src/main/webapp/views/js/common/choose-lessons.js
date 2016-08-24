@@ -1,6 +1,7 @@
 /**
  * Created by hzqiuxm on 2016/8/12 0012.
  */
+
 (function (angular) {
     'use strict'
     /**
@@ -18,3 +19,59 @@
 
 
 })(angular)
+
+$(function () {
+    //$('#lesson_table').bootstrapTable({});
+    $('#select-button').on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "/lesson/chooseLessons",
+            async: false,
+            //dataType: "json",
+            success: function (response) {
+                //$('#events-table').bootstrapTable('refresh');
+                if (response.result == 99) {
+                    swal("操作失败", "对不起，你还不是紫牛小筑的指定讲师，请联系管理员!", "error");
+                }
+                if (response.result == 95) {
+                    swal("操作失败", "你还有未完成的培训课程，完成后才可以再次选课!", "error");
+                }
+                if (response.result == 97) {
+                    swal("操作失败", "你已经没有剩余选课次数!", "error");
+                }
+                var json = eval(response);
+                swal("<<" + json.lessons[0].lesson_name + ">>", "选课成功！你还剩余" + json.chooseNum + "选课次数!", "success");
+
+
+            }
+
+        });
+    });
+})
+
+function detailFormatter(index, row) {
+    var html = [];
+//    $.each(row, function (key, value) {
+//      html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+//    });
+    html.push('<div class="text-left"><span class="text-primary ">'+ "课程主题描述:" + '</span><div class="text-muted">' + row.lesson_des +'</div></div>' );
+    return html.join('');
+}
+
+function getHeight() {
+    return $(window).height() - $('h1').outerHeight(true);
+}
+
+function responseHandler(res) {
+    $.each(res.rows, function (i, row) {
+        row.state = $.inArray(row.id, selections) !== -1;
+    });
+    return res;
+}
+
+function stateFormatter(value, row, index){
+    var icon = row.state === '0' ? 'glyphicon glyphicon-ok lesson_yes' : 'glyphicon glyphicon-remove lesson_no';
+    return [
+        '<div class=" ' + icon + '"></div> '
+    ].join('');
+}
