@@ -15,7 +15,7 @@ public class newJfinalDemo {
 
         rp.start();
         Redis.use().set("key","value");
-        System.out.println(Redis.use().get("key"));
+//        System.out.println(Redis.use().get("key"));
     }
 
 

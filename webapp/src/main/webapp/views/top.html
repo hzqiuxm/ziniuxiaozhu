@@ -11,17 +11,22 @@
         <!--MENU-->
         <nav id = "main-nav-menu">
             <ul class="sf-menu sf-js-enabled">
-                <li id="onepage"><a href="/views/index.html" target="_self">小筑首页</a></li>
-                <li id="twopage"><a href="#">团队组成</a></li>
-                <li id="threepage"> <a href="#">小筑公告</a></li>
-                <li id="fourpage" class="active"><a href="/blog" target="_parent">小筑培训</a>
+                <li><a href="/views/index.html" target="_self">小筑首页</a></li>
+                <li><a href="#">团队组成</a></li>
+                <li> <a href="#">小筑公告</a></li>
+                <li ng-class="{active:four}"><a href="/blog" target="_parent">小筑培训</a>
                     <ul>
-                        <li><a href="/views/lesson/choose-lessons.html" target="_parent">开始选课{{test}}</a></li>
-                        <li><a href="/views/lesson/show-lessons.html" target="_parent">选课计划</a></li>
+                        <li><a href="/views/lesson/choose-lessons.html" target="_parent">开始选课</a></li>
+                        <li><a href="/views/lesson/show-lessons.html" target="_parent">课程列表</a></li>
                         <!--<li><a href="/views/week-report.html" target="_parent">开始选课</a></li>-->
                     </ul>
                 </li>
-                <li><a href="#">小筑博客</a>
+                <li ng-class="{active:five}" ><a href="#">小筑博客</a>
+                    <ul>
+                        <li><a href="/views/blog/my-blogs.html" target="_parent">我的博客</a></li>
+                        <li><a href="/views/blog/all-blogs.html" target="_parent">小筑博客</a></li>
+                        <!--<li><a href="/views/week-report.html" target="_parent">开始选课</a></li>-->
+                    </ul>
                 </li>
                 <li id="fivepage"><a href="#" target="_parent">团队管理</a>
                     <ul>
