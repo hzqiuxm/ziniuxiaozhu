@@ -1,12 +1,11 @@
 package com.znblog.controller;
 
-import com.jfinal.core.Controller;
 import com.znblog.model2json.Contact;
 
 /**
  * Created by hzqiuxm on 2016/3/8 0008.
  */
-public class IndexController extends Controller {
+public class IndexController extends BaseController {
     public void index(){
         System.out.println("begin ... ... ");
         render("index.html");

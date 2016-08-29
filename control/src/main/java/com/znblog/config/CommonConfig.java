@@ -10,14 +10,13 @@ import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.render.ViewType;
 import com.znblog.controller.*;
 import com.znblog.model._MappingKit;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 /**
  * Created by hzqiuxm on 2015/10/13
  */
 public class CommonConfig extends JFinalConfig {
-private static Log log = LogFactory.getLog(CommonConfig.class);
+private static Logger log = Logger.getLogger(CommonConfig.class);
     /**
      * 配置常量
      * @param me
@@ -27,6 +26,7 @@ private static Log log = LogFactory.getLog(CommonConfig.class);
 
         // 加载少量必要配置，随后可用PropKit.get(...)获取值
         PropKit.use("properties/config.properties");
+        PropKit.use("properties/log4j.properties");
         //设置开发模式，如果是true，后台会输出Controller、action参数信息
         me.setDevMode(PropKit.getBoolean("devMode", true));
         // 设置视图类型为Jsp，否则默认为FreeMarker
@@ -110,6 +110,7 @@ private static Log log = LogFactory.getLog(CommonConfig.class);
 //        可以配置多个拦截器，先调用的后完成,controller只执行一次
 //        me.add(new GlobaInterceptor());
         log.debug("初始化配置全局拦截器...");
+//        DebugInfo.log("CommonConfig","初始化全局拦截器...");
         me.add(new SessionInViewInterceptor(true));
     }
 
