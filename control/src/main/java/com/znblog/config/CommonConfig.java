@@ -107,6 +107,7 @@ public class CommonConfig extends JFinalConfig {
 
 //        可以配置多个拦截器，先调用的后完成,controller只执行一次
         me.add(new GlobaInterceptor());
+        me.add(new SessionInterceptor());
     }
 
     /**

@@ -48,7 +48,6 @@ public class UserWeekService {
      * @return 周报集合
      */
     public List<Map> GetReport(String name,String time,String start,int number){
-        //// TODO: 2016/8/15 这里要check session？
         List<ZnWeeklyReport> weekreports=null;
 
         //查询部分
@@ -253,7 +252,7 @@ public class UserWeekService {
      * @return 名字集合
      */
     public List<String> GetLastWeekNoReportName(){
-        List<ZnWeeklyReport> weekreports= ZnWeeklyReport.dao.find("select real_name from user_base where user_name not in (select distinct report_writer from zn_weekly_report where WEEK(report_time)= WEEK(NOW())-1)");
+        List<ZnWeeklyReport> weekreports= ZnWeeklyReport.dao.find("select real_name from user_base where user_name not in (select distinct report_writer from zn_weekly_report where WEEK(report_time)= WEEK(NOW())-1) and weekly_report_power=1");
         List<String> NameList = new ArrayList<String>();
         for(ZnWeeklyReport report : weekreports) {
             NameList.add(report.get("real_name").toString());
@@ -270,5 +269,11 @@ public class UserWeekService {
     public boolean ChangePwd(String old_pwd,String new_pwd){
         int result = Db.update("Update user_base set user_pwd = ? where user_name = ? and user_pwd = ?",new_pwd,user_name,old_pwd);
         return result > 0;
+    }
+
+    public String GetUser(){
+        UserBase getrealname=UserBase.dao.find("select real_name from user_base where user_name = ?",user_name).get(0);
+        String realName=getrealname.getRealName();
+        return realName;
     }
 }

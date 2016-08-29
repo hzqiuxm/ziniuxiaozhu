@@ -43,7 +43,7 @@ public class Quartztest {
     public static class HelloJob implements Job {
 
         public void execute(JobExecutionContext context) throws JobExecutionException {//上周周报未提交的人 次数加一
-            int result = Db.update("update user_base set noweekreport_times=noweekreport_times+1 where real_name in(select a.real_name from (select b.real_name from user_base b where b.user_name not in (select distinct report_writer from zn_weekly_report where WEEK(report_time)= WEEK(NOW())-1))a)");
+            int result = Db.update("update user_base set no_weekly_report_times=no_weekly_report_times+1 where real_name in(select a.real_name from (select b.real_name from user_base b where b.user_name not in (select distinct report_writer from zn_weekly_report where WEEK(report_time)= WEEK(NOW())-1))a)");
             if(result==0){
                 System.out.println("全都提交了");
             }else{

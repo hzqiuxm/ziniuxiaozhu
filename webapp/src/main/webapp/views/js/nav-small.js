@@ -13,8 +13,8 @@ f++) {
 e+="      "
 }
 e+=$(d).children("a").text();
-$("#responsive-main-nav-menu").append("<option value = '"+$(d).children("a").attr("href")+"'>"+e+"</option>");
-if($(d).children("ul").size()==1) {
+//$("#responsive-main-nav-menu").append("<option value = '"+$(d).children("a").attr("href")+"'>"+e+"</option>");
+if($(d).children("ul")||$(d).children("ul").size()==1) {
 a($(d).children("ul"), c+1)
 }
 }

@@ -3,14 +3,14 @@
  */
 
 (function (angular) {
-    'use strict'
+    'use strict';
     /**
      * 用于选课页面
      *
      */
     angular.module('zn-choose', [])
         .controller('chooseController', ['$scope', function ($scope) {
-
+            $scope.choose=4;
             $scope.four = true;
             $scope.template = { name: 'header.html', url: '/views/header.html'}
 
@@ -18,7 +18,7 @@
 
 
 
-})(angular)
+})(angular);
 
 $(function () {
     //$('#lesson_table').bootstrapTable({});
@@ -47,7 +47,7 @@ $(function () {
 
         });
     });
-})
+});
 
 function detailFormatter(index, row) {
     var html = [];
@@ -75,3 +75,29 @@ function stateFormatter(value, row, index){
         '<div class=" ' + icon + '"></div> '
     ].join('');
 }
+
+
+$(document).ready(function(){
+    const pageslider=new PageSlider();
+    $("body").on("mouseover",".page-number",function(){pageslider.ARClass($(this));}).on("mouseleave","ul.pagination",function(){//离开ul
+        const number=$('.page-number');
+        pageslider.ARClass(number.eq(number.index($(".page-number.active"))));
+    })
+    $(".container").bind('DOMNodeInserted',function(){
+        pageslider.ARClass($(".page-number.active"));
+    })
+});
+
+var PageSlider=function(){};
+PageSlider.prototype={
+    ARClass:function(li){//传入的是被选中的li
+        const prev=li.prev('.page-number');
+        const next=li.next('.page-number');
+        const number=$('.page-number');
+        //清除其他
+        number.css({width:'8px', height:'8px'}).children('a').css({cssText:'display:none!important'});
+        li.css({width:'16px',height:'16px',color:'#fff'}).children('a').css({cssText:'display:block!important'});
+        prev.css({width:'12px',height:'12px'});
+        next.css({width:'12px',height:'12px'});
+    }
+};

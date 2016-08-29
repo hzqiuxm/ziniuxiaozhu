@@ -6,24 +6,24 @@
   <script type="text/javascript" src="/commons/js/commoncss.js"></script>
   <script type="text/javascript" src="/commons/js/commonjs.js"></script>
   <script>
-        function checksession(){
+    function checksession(){
 
-            $.ajax({
+        $.ajax({
             url: '/weekreport/checksession',
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
             error: function(){console.log('Error loading document');},
             success: function(result){
-              if(result=="success"){
-                location.href="/views/week-report/report-view.html";
-              }else{
-                //$("#container").html(result);
-              }
+                if(result=="success"){
+                    location.href="/views/week-report/report-view.html";
+                }else{
+                    //$("#container").html(result);
+                }
             }
-          });
-        }
-        checksession();
+        });
+    }
+    checksession();
   </script>
 
 
@@ -48,9 +48,9 @@
           <span>密码：</span><input type="password" id="inputpwd" onkeydown="if(event.keyCode==13){$('#confirm').trigger('click')}"></div>
         <br>
         <div>
-          <button id="confirm" type="submit">确定</button>
-          <button id="cancel">取消</button>
-        </div>
+            <span id="confirm" >确定</span>
+            <span id="cancel">取消</span>
+            </div>
       </div>
     </center>
 </div>

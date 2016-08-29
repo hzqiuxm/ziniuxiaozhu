@@ -7,11 +7,12 @@
 (function (angular) {
     'use strict'
     /**
-     * 用于选课页面
+     * 用于周报页面
      *
      */
     angular.module('zn-choose', [])
         .controller('chooseController', ['$scope', function ($scope) {
+            $scope.choose=6;
 
             $scope.four = true;
             $scope.template = { name: 'header.html', url: '/views/header.html'}
@@ -21,8 +22,9 @@
 $("#confirm").on("click",function(){//登录
     var url="/views/week-report/report-view.html";
     if(window.location.hash!=""){
-        url="/views/"+window.location.hash.replace("#/","")+".html"
+        url="/views/"+window.location.hash.replace("#/","")+".html";
     }
+    console.log(url);
     $.ajax({
         url: '/weekreport/login',
         type: 'POST',
@@ -45,6 +47,8 @@ $("#confirm").on("click",function(){//登录
 $("#cancel").on("click",function(){//取消按钮,清空input
     $(this).parents("#center-div").children("div").children("input").val("");
 });
+
+
 
 
 
