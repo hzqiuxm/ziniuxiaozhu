@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2016-08-29 09:56:42
+Date: 2016-08-29 17:23:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,7 +51,7 @@ CREATE TABLE `lessons_plan` (
   `state` char(2) DEFAULT NULL COMMENT '0：未开讲 1：已开讲',
   `notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8 COMMENT='存放生成的具体课程计划';
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COMMENT='存放生成的具体课程计划';
 
 -- ----------------------------
 -- Table structure for lessons_type
@@ -101,7 +101,7 @@ CREATE TABLE `user_base` (
   `state` char(2) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
   `no_weekly_report_times` int(11) DEFAULT '0' COMMENT '周报未提交的次数',
-  `weekly_report_power` bit(1) DEFAULT b'0' COMMENT '是否需要提交周报',
+  `weekly_report_power` bit(1) DEFAULT b'0' COMMENT '是否需要提交周报，0表示不需要，1表示需要',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户基本信息表';
 
@@ -164,7 +164,7 @@ CREATE TABLE `zn_discuss` (
   `discuss_message` varchar(1000) DEFAULT '' COMMENT '评论内容',
   `discuss_time` datetime DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for zn_lessons
@@ -241,4 +241,4 @@ CREATE TABLE `zn_weekly_report` (
   `report_difficulty` varchar(1000) DEFAULT '' COMMENT '遇到的问题与困难',
   `report_time` datetime DEFAULT NULL COMMENT '提交时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
