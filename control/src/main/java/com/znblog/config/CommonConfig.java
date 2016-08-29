@@ -2,6 +2,7 @@ package com.znblog.config;
 
 
 import com.jfinal.config.*;
+import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -9,19 +10,20 @@ import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.render.ViewType;
 import com.znblog.controller.*;
 import com.znblog.model._MappingKit;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Created by hzqiuxm on 2015/10/13
  */
 public class CommonConfig extends JFinalConfig {
-
+private static Log log = LogFactory.getLog(CommonConfig.class);
     /**
      * 配置常量
      * @param me
      */
     @Override
     public void configConstant(Constants me) {
-
 
         // 加载少量必要配置，随后可用PropKit.get(...)获取值
         PropKit.use("properties/config.properties");
@@ -106,7 +108,9 @@ public class CommonConfig extends JFinalConfig {
     public void configInterceptor(Interceptors me) {
 
 //        可以配置多个拦截器，先调用的后完成,controller只执行一次
-        me.add(new GlobaInterceptor());
+//        me.add(new GlobaInterceptor());
+        log.debug("初始化配置全局拦截器...");
+        me.add(new SessionInViewInterceptor(true));
     }
 
     /**

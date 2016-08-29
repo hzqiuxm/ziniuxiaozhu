@@ -14,11 +14,9 @@ public class BlogController extends Controller {
         System.out.println("wecome visited 紫牛小筑");
     }
 
-    public void about_me(){
+    public void personalBlogs(){
 
-//        render("about_me.jsp");
-        renderText("xxxxxxxx");
-//        render("test");
+
     }
 
 
