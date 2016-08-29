@@ -2,7 +2,6 @@ package com.znblog.config;
 
 
 import com.jfinal.config.*;
-import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -10,13 +9,12 @@ import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.render.ViewType;
 import com.znblog.controller.*;
 import com.znblog.model._MappingKit;
-import org.apache.log4j.Logger;
 
 /**
  * Created by hzqiuxm on 2015/10/13
  */
 public class CommonConfig extends JFinalConfig {
-private static Logger log = Logger.getLogger(CommonConfig.class);
+
     /**
      * 配置常量
      * @param me
@@ -24,9 +22,9 @@ private static Logger log = Logger.getLogger(CommonConfig.class);
     @Override
     public void configConstant(Constants me) {
 
+
         // 加载少量必要配置，随后可用PropKit.get(...)获取值
         PropKit.use("properties/config.properties");
-        PropKit.use("properties/log4j.properties");
         //设置开发模式，如果是true，后台会输出Controller、action参数信息
         me.setDevMode(PropKit.getBoolean("devMode", true));
         // 设置视图类型为Jsp，否则默认为FreeMarker
@@ -108,10 +106,8 @@ private static Logger log = Logger.getLogger(CommonConfig.class);
     public void configInterceptor(Interceptors me) {
 
 //        可以配置多个拦截器，先调用的后完成,controller只执行一次
-//        me.add(new GlobaInterceptor());
-        log.debug("初始化配置全局拦截器...");
-//        DebugInfo.log("CommonConfig","初始化全局拦截器...");
-        me.add(new SessionInViewInterceptor(true));
+        me.add(new GlobaInterceptor());
+        me.add(new SessionInterceptor());
     }
 
     /**

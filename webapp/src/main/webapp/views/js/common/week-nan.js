@@ -9,7 +9,7 @@
      */
     angular.module('zn-index', [])
         .controller('nanController', ['$scope', function ($scope) {
-
+            $scope.choose=1;
             $scope.weekNans = [
                 {id: 1, english: "Life is made up of small pleasures.", chinese: "生活由各种微小的幸福构成"},
                 {id: 2, english: "Everything is good in its season", chinese: "万物逢时皆美好"}

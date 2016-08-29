@@ -1,4 +1,3 @@
-# noinspection SqlNoDataSourceInspectionForFile
 /*
 Navicat MySQL Data Transfer
 
@@ -270,16 +269,3 @@ CREATE TABLE `zn_weekreports` (
   `reporter_time` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for zn_week_ana
--- ----------------------------
-DROP TABLE IF EXISTS `zn_week_ana`;
-CREATE TABLE `zn_week_ana` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `english_sentence` varchar(1000) COLLATE utf8_bin DEFAULT NULL,
-  `chinese_sentence` varchar(1000) COLLATE utf8_bin DEFAULT NULL,
-  `status` bigint(1) DEFAULT NULL,
-  `notes` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin

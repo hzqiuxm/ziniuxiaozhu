@@ -23,7 +23,6 @@
             });
         }
         checksession();
-
     </script>
 </head>
 <body ng-controller="chooseController">
@@ -31,8 +30,8 @@
 <div id="container">
 
     <div id="user">
-        <div id="last-week">
-            <span id="last-week-text">上周周报未提交：</span>
+        <div id="user-hello">
+            <span id="user-text"></span>
         </div>
         <div id="user-control">
             <span id="logout">退出登录</span>
@@ -60,12 +59,13 @@
         </div>
     </div>
 
+    <div id="last-week"><span id="last-week-text">上周周报未提交：</span></div>
+
     <div id="search-div">
         <span>名字搜索：</span>
-        <input type="text" id="search-name">
+        <input type="text" id="search-name" placeholder="在此输入">
         <input type="date" id="search-datetime">
-        <button id="search">搜索</button>
-        <button id="flash">刷新</button>
+        <input type="button" id="flash" value="刷新">
     </div>
 
     <div id="reports"></div>
