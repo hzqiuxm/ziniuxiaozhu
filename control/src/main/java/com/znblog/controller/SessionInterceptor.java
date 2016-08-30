@@ -18,7 +18,7 @@ public class SessionInterceptor  implements Interceptor {
         log.info("触发函数:"+ai. getMethodName());
         log.info(ai. getMethodName());
         log.info("name:"+controller.getSessionAttr("name")+"   pwd:"+controller.getSessionAttr("pwd"));
-        if ((controller.getSessionAttr("name")!=null&&controller.getSessionAttr("pwd")!=null)||ai. getMethodName().equals("login")||ai. getMethodName().equals("checksession"))
+        if ((controller.getSessionAttr("name")!=null&&controller.getSessionAttr("pwd")!=null)||ai. getMethodName().equals("login")||ai. getMethodName().equals("checksession")||ai. getMethodName().equals("index"))
             ai.invoke();
         else
             controller.redirect("/views/week-report.html");
