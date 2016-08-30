@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2016-08-24 09:54:41
+Date: 2016-08-29 17:23:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,7 +51,7 @@ CREATE TABLE `lessons_plan` (
   `state` char(2) DEFAULT NULL COMMENT '0：未开讲 1：已开讲',
   `notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8 COMMENT='存放生成的具体课程计划';
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COMMENT='存放生成的具体课程计划';
 
 -- ----------------------------
 -- Table structure for lessons_type
@@ -100,7 +100,8 @@ CREATE TABLE `user_base` (
   `update_time` datetime DEFAULT NULL,
   `state` char(2) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
-  `noweekreport_times` int(11) DEFAULT '0',
+  `no_weekly_report_times` int(11) DEFAULT '0' COMMENT '周报未提交的次数',
+  `weekly_report_power` bit(1) DEFAULT b'0' COMMENT '是否需要提交周报，0表示不需要，1表示需要',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户基本信息表';
 
@@ -157,27 +158,13 @@ CREATE TABLE `zn_comment` (
 DROP TABLE IF EXISTS `zn_discuss`;
 CREATE TABLE `zn_discuss` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `discuss_report_id` int(11) DEFAULT '0',
-  `discuss_critic` varchar(20) DEFAULT '',
-  `discuss_reply` varchar(20) DEFAULT '',
-  `discuss_message` varchar(1000) DEFAULT '',
-  `discuss_time` datetime DEFAULT NULL,
+  `discuss_report_id` int(11) DEFAULT '0' COMMENT '评论周报的id号',
+  `discuss_critic` varchar(20) DEFAULT '' COMMENT '评论人用户名',
+  `discuss_reply` varchar(20) DEFAULT '' COMMENT '回复人真名，如果不是回复则为空字符串',
+  `discuss_message` varchar(1000) DEFAULT '' COMMENT '评论内容',
+  `discuss_time` datetime DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for zn_judge
--- ----------------------------
-DROP TABLE IF EXISTS `zn_judge`;
-CREATE TABLE `zn_judge` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `judge_weekreports_id` int(11) DEFAULT '0',
-  `judge_critic` varchar(20) DEFAULT '',
-  `judge_reply` varchar(20) DEFAULT '',
-  `judge_message` varchar(1000) DEFAULT '',
-  `judge_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for zn_lessons
@@ -241,20 +228,6 @@ CREATE TABLE `zn_user_base` (
   `notes` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for zn_weekly_report
--- ----------------------------
-DROP TABLE IF EXISTS `zn_weekly_report`;
-CREATE TABLE `zn_weekly_report` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `report_writer` varchar(20) DEFAULT '',
-  `report_this_week` varchar(1000) DEFAULT '',
-  `report_next_week` varchar(1000) DEFAULT '',
-  `report_difficulty` varchar(1000) DEFAULT '',
-  `report_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for zn_weekly_report
