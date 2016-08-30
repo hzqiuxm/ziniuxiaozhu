@@ -257,15 +257,15 @@ CREATE TABLE `zn_weekly_report` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for zn_weekreports
+-- Table structure for zn_weekly_report
 -- ----------------------------
-DROP TABLE IF EXISTS `zn_weekreports`;
-CREATE TABLE `zn_weekreports` (
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `reporter_writer` varchar(20) DEFAULT '',
-  `reporter_thisweek` varchar(1000) DEFAULT '',
-  `reporter_nextweek` varchar(1000) DEFAULT '',
-  `reporter_difficulty` varchar(1000) DEFAULT '',
-  `reporter_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `zn_weekly_report`;
+CREATE TABLE `zn_weekly_report` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `report_writer` varchar(20) DEFAULT '' COMMENT '周报提交人的用户账号',
+  `report_this_week` varchar(1000) DEFAULT '' COMMENT '本周工作',
+  `report_next_week` varchar(1000) DEFAULT '' COMMENT '下周计划',
+  `report_difficulty` varchar(1000) DEFAULT '' COMMENT '遇到的问题与困难',
+  `report_time` datetime DEFAULT NULL COMMENT '提交时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
