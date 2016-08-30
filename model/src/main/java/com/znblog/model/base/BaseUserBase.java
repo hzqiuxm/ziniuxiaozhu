@@ -145,14 +145,6 @@ public abstract class BaseUserBase<M extends BaseUserBase<M>> extends Model<M> i
 		return get("notes");
 	}
 
-	public void setNoweekreportTimes(java.lang.Integer noweekreportTimes) {
-		set("noweekreport_times", noweekreportTimes);
-	}
-
-	public java.lang.Integer getNoweekreportTimes() {
-		return get("noweekreport_times");
-	}
-
 	public void setNoWeeklyReportTimes(java.lang.Integer noWeeklyReportTimes) {
 		set("no_weekly_report_times", noWeeklyReportTimes);
 	}
