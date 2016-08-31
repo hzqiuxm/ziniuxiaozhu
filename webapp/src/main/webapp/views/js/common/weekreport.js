@@ -24,7 +24,6 @@ $("#confirm").on("click",function(){//登录
     if(window.location.hash!=""){
         url="/views/"+window.location.hash.replace("#/","")+".html";
     }
-    console.log(url);
     $.ajax({
         url: '/weekreport/login',
         type: 'POST',
@@ -34,7 +33,7 @@ $("#confirm").on("click",function(){//登录
         },
         dataType: 'html',
         timeout: 1000,
-        error: function(){console.log('Error loading document');},
+        error: function(){location.href=url;},
         success: function(result){
             result= $.parseJSON(result);
             if(result.result!=0)
@@ -48,7 +47,24 @@ $("#cancel").on("click",function(){//取消按钮,清空input
     $(this).parents("#center-div").children("div").children("input").val("");
 });
 
-
+var checksession=function(){
+    $("#container").hide();
+    $.ajax({
+        url: '/weekreport/checksession',
+        type: 'POST',
+        dataType: 'html',
+        timeout: 1000,
+        error: function(){console.log('Error loading document');},
+        success: function(result){
+            if(result=="success"){
+                location.href="/views/week-report/report-view.html";
+            }else{
+                $("#container").show();
+            }
+        }
+    });
+};
+new checksession();
 
 
 

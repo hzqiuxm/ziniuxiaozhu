@@ -5,28 +5,6 @@
   <title>紫牛小筑周报系统登录</title>
   <script type="text/javascript" src="/commons/js/commoncss.js"></script>
   <script type="text/javascript" src="/commons/js/commonjs.js"></script>
-  <script>
-    function checksession(){
-
-        $.ajax({
-            url: '/weekreport/checksession',
-            type: 'POST',
-            dataType: 'html',
-            timeout: 1000,
-            error: function(){console.log('Error loading document');},
-            success: function(result){
-                if(result=="success"){
-                    location.href="/views/week-report/report-view.html";
-                }else{
-                    //$("#container").html(result);
-                }
-            }
-        });
-    }
-    checksession();
-  </script>
-
-
 
 </head>
 <body ng-controller="chooseController">

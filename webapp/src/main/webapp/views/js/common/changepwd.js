@@ -2,22 +2,25 @@
  * Created by ZhangYifan on 2016/8/23.
  */
 
-function checksession(){
+var checksession=function(){
+    $("#container").hide();
     $.ajax({
         url: '/weekreport/checksession',
         type: 'POST',
         dataType: 'html',
         timeout: 1000,
-        error: function(){console.log('Error loading document');},
+        error: function(){location.href="/views/week-report.html#personal/changepwd";},
         success: function(result){
             if(result=="success"){
+                $("#container").show();
             }else{
                 location.href="/views/week-report.html#personal/changepwd";
             }
         }
     });
 }
-checksession();
+new checksession();
+
 
 (function (angular) {
     'use strict';
@@ -41,7 +44,7 @@ var Bind=function(){
     $("#cancel").on("click",function(){//取消按钮,清空input
         $(this).parents("#center-div").children("div").children("input").val("");
     });
-    b=$("body");
+    var b=$("body");
     b.on("click","#changepwd",function(){
         if($("#inputnewpwd").val()!=$("#inputnewpwd2").val()) {
             alert("两次输入的密码不同，请重新输入");
@@ -52,7 +55,7 @@ var Bind=function(){
                 data:{inputoldpwd:$("#inputoldpwd").val(),inputnewpwd:$("#inputnewpwd").val(),inputnewpwd2:$("#inputnewpwd2").val()},
                 dataType: 'html',
                 timeout: 1000,
-                error: function(){console.log('Error loading document');},
+                error: function(){location.href="/views/week-report.html#personal/changepwd";},
                 success: function(result){
                     result= $.parseJSON(result);
                     if(result.result==0){//成功修改密码，重新登陆
@@ -76,7 +79,7 @@ var Bind=function(){
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
-            error: function(){alert("登出失败")},//todo 所有的失败提示
+            error: function(){alert("登出失败");location.href="/views/week-report.html#personal/changepwd";},
             success: function(){
                 location.href="/views/week-report.html";
             }

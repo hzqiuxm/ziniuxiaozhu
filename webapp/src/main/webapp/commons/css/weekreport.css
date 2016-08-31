@@ -107,3 +107,4 @@ ul.pagination li{float:none !important;}
 .neighbour{width: 12px;height: 12px;}
 .pagination>.active{width:16px;height: 16px;}
 .active + .page-number{width:12px;height:12px;}
+.bg-success{background-color: #d8f0ee;}

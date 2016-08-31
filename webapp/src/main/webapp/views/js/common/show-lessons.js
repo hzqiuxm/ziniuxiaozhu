@@ -15,6 +15,7 @@
             $scope.template = { name: 'header.html', url: '/views/header.html'}
         }]);
 })(angular);
+
 function detailFormatter(index, row) {
     var html = [];
     html.push('<div class="text-left"><span class="text-primary ">'+ "课程描述:" + '</span><div class="text-muted">' + row.lesson_des +'</div></div>' );
@@ -55,7 +56,8 @@ $(function() {
                             $.ajax({
                                 url: '/lessonPlan/modifyPlan',
                                 type: 'POST',
-                                data: {'id':row.id ,'lessonTitle':lessonTitle, 'lessonDes': lessonDes}
+                                data: {'id':row.id ,'lessonTitle':lessonTitle, 'lessonDes': lessonDes},
+                                error: function () {location.href = "/views/week-report.html#lesson/show-lessons";}
                             }).done(function (datas) {
                                 if(datas.usercheck==false){//如果不是本人的课程
                                     swal("操作失败", "对不起，只能修改自己的课程内容！", "error");
@@ -78,16 +80,6 @@ $(function() {
     })
 });
 
-$(document).ready(function(){
-    const pageslider=new PageSlider();
-    $("body").on("mouseover",".page-number",function(){pageslider.ARClass($(this));}).on("mouseleave","ul.pagination",function(){//离开ul
-        const number=$('.page-number');
-        pageslider.ARClass(number.eq(number.index($(".page-number.active"))));
-    })
-    $(".container").bind('DOMNodeInserted',function(){
-        pageslider.ARClass($(".page-number.active"));
-    })
-});
 
 var PageSlider=function(){};
 PageSlider.prototype={
@@ -100,5 +92,36 @@ PageSlider.prototype={
         li.css({width:'16px',height:'16px',color:'#fff'}).children('a').css({cssText:'display:block!important'});
         prev.css({width:'12px',height:'12px'});
         next.css({width:'12px',height:'12px'});
+    },
+    checksession:function(){
+        $("#container").hide();
+        $.ajax({
+            url: '/weekreport/checksession',
+            type: 'POST',
+            dataType: 'html',
+            timeout: 1000,
+            error: function(){location.href="/views/week-report.html#lesson/show-lessons";},
+            success: function(result){
+                if(result=="success"){
+                    $("#container").show();
+                }else{
+                    location.href="/views/week-report.html#lesson/show-lessons";
+                }
+            }
+        });
     }
 };
+
+
+const pageslider=new PageSlider();
+pageslider.checksession();
+
+$(document).ready(function(){
+    $("body").on("mouseover",".page-number",function(){pageslider.ARClass($(this));}).on("mouseleave","ul.pagination",function(){//离开ul
+        const number=$('.page-number');
+        pageslider.ARClass(number.eq(number.index($(".page-number.active"))));
+    })
+    $(".container").bind('DOMNodeInserted',function(){
+        pageslider.ARClass($(".page-number.active"));
+    })
+});

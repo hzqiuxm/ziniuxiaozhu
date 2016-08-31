@@ -23,7 +23,7 @@
 
 
 $(document).ready(function(){
-    var Binds=new Bind();
+    new Bind();
     ReportViews.LoadHtml();
     ReportViews.GetNames();
 });
@@ -54,9 +54,9 @@ var Bind=function(){
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
-            error: function(){alert("登出失败")},
+            error: function(){alert("登出失败");ReportViews.JumpTo();},
             success: function(){
-                location.href="/views/week-report.html";
+                ReportViews.JumpTo();
             }
         });
     });
@@ -68,17 +68,15 @@ var Bind=function(){
             data:{thisweek:$("#thisweek").val(),nextweek:$("#nextweek").val(),difficulty:$("#difficulty").val()},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
-            success: function(result){
+            error: function(){ReportViews.JumpTo();},
+            success:function(result){
                 result= $.parseJSON(result);
                 if(result.result==0){//重新加载周报
-                    //清空条件
                     ReportViews.Clear().LoadReports("5");
-                }
-                else{
+                }else{
                     if(result.result==1){
                         alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+                        ReportViews.JumpTo();
                     }else
                         alert("周报提交出错！！");
                 }
@@ -95,22 +93,21 @@ var Bind=function(){
             data:{reportid:id},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
-            success: function(result){
-                result= $.parseJSON(result);
-                if(result.result==0){
-                    var div=document.getElementById(id);
-                    $("#show-more").attr("data-number",datanumber-1);
-                    div.remove();
-                }else{
-                    if(result.result==1){
-                        alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+            error: function(){ReportViews.JumpTo();},
+            success:function(result){
+                    result= $.parseJSON(result);
+                    if(result.result==0){//重新加载周报
+                        var div=document.getElementById(id);
+                        $("#show-more").attr("data-number",datanumber-1);
+                        div.remove();
                     }else{
-                        alert("周报删除出错！！");
+                        if(result.result==1){
+                            alert("登录超时，请重新登陆！！");
+                            ReportViews.JumpTo();
+                        }else
+                            alert("周报提交出错！！");
                     }
                 }
-            }
         });
     });
 
@@ -124,20 +121,19 @@ var Bind=function(){
             data:{message:message,reportid:reportid,replyname:""},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
-            success: function(result){
-                result= $.parseJSON(result);
-                if(result.result==0)
-                    $("#"+reportid).replaceWith(ReportViews.MakeWholeReport(result.data));
-                else{
-                    if(result.result==1){
-                        alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
-                    }else{
-                        alert("评论出错！！");
+            error: function(){ReportViews.JumpTo();},
+            success:function(result){
+                    result= $.parseJSON(result);
+                    if(result.result==0)
+                        $("#"+reportid).replaceWith(ReportViews.MakeWholeReport(result.data));
+                    else{
+                        if(result.result==1){
+                            alert("登录超时，请重新登陆！！");
+                            ReportViews.JumpTo();
+                        }else
+                            alert("周报提交出错！！");
                     }
                 }
-            }
         });
     });
 
@@ -152,7 +148,7 @@ var Bind=function(){
             data: {message: message, replyname: replyname, reportid: reportid},
             dataType: 'html',
             timeout: 1000,
-            error:function (){console.log('Error loading document');},
+            error:function (){ReportViews.JumpTo();},
             success:function(result){
                 result= $.parseJSON(result);
                 if(result.result==0)
@@ -160,7 +156,7 @@ var Bind=function(){
                 else{
                     if(result.result==1){
                         alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+                        ReportViews.JumpTo();
                     }else{
                         alert("评论出错！！");
                     }
@@ -178,7 +174,7 @@ var Bind=function(){
             data:{commentid:commentid,reportid:reportid},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
+            error: function(){ReportViews.JumpTo();},
             success: function(result){
                 result= $.parseJSON(result);
                 if(result.result==0)
@@ -186,7 +182,7 @@ var Bind=function(){
                 else{
                     if(result.result==1){
                         alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+                        ReportViews.JumpTo();
                     }else{
                         alert("删除评论出错！！");
                     }
@@ -203,7 +199,7 @@ var Bind=function(){
             data:{id:$(this).parents(".one-report").attr("id")},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
+            error: function(){ReportViews.JumpTo();},
             success: function(result){
                 result= $.parseJSON(result);
                 if(result.result==0) {
@@ -215,7 +211,7 @@ var Bind=function(){
                 else{
                     if(result.result==1){
                         alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+                        ReportViews.JumpTo();
                     }else{
                         alert("获取周报内容出错！！");
                     }
@@ -237,7 +233,7 @@ var Bind=function(){
                 difficulty:$("#difficulty-change").val()},
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
+            error: function(){ReportViews.JumpTo();},
             success: function(result){
                 result= $.parseJSON(result);
                 if(result.result==0) {
@@ -247,7 +243,7 @@ var Bind=function(){
                 else{
                     if(result.result==1){
                         alert("登录超时，请重新登陆！！");
-                        location.href="/views/week-report.html";
+                        ReportViews.JumpTo();
                     }else{
                         alert("删除评论出错！！");
                     }
@@ -281,6 +277,23 @@ var ReportView=function(){
     this.lastweek=$("#last-week");
 };
 ReportView.prototype={
+    checksession:function (){
+        $("#container").hide();
+        $.ajax({
+            url: '/weekreport/checksession',
+            type: 'POST',
+            dataType: 'html',
+            timeout: 1000,
+            error: function(){ReportViews.JumpTo();},
+            success: function(result){
+                if(result=="success"){
+                    $("#container").show();
+                }else{
+                    ReportViews.JumpTo();
+                }
+            }
+        });
+    },
     LoadReports:function(number){//周报拉取 number 是获取数量
         var datanumber=Number(this.showmore.attr("data-number"));
         var name=this.showmore.attr("data-name");
@@ -297,12 +310,12 @@ ReportView.prototype={
             },
             dataType: 'html',
             timeout: 1000,
-            error: function(){console.log('Error loading document');},
+            error: function(){ReportViews.JumpTo();},
             success: function(result){
                 result= $.parseJSON(result);
                 if(result.result!=0){//获取失败
                     alert("登录超时，请重新登陆！！");
-                    location.href="/views/week-report.html";
+                    ReportViews.JumpTo();
                 }
                 else{//获取成功
                     var data=result.data;
@@ -349,9 +362,7 @@ ReportView.prototype={
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
-            error: function () {
-                console.log('Error loading document');
-            },
+            error: function () {ReportViews.JumpTo();},
             success: function (result) {
                 result = $.parseJSON(result);
                 if (result.result == 0) {
@@ -462,9 +473,7 @@ ReportView.prototype={
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
-            error: function () {
-                console.log('Error loading document');
-            },
+            error: function () {ReportViews.JumpTo();},
             success: function (result) {
                 result = $.parseJSON(result);
                 if (result.result == 0) {
@@ -480,7 +489,9 @@ ReportView.prototype={
                 }
             }
         });
-    }
+    },
+    JumpTo:function(){location.href="/views/week-report.html#week-report/report-view";}
 };
 
 var ReportViews=new ReportView();
+ReportViews.checksession();
