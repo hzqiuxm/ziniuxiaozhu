@@ -11,19 +11,24 @@
         <!--MENU-->
         <nav id = "main-nav-menu">
             <ul class="sf-menu sf-js-enabled">
-                <li id="onepage" class="{{choose==1?'active':''}}"><a href="/views/index.html" target="_self">小筑首页</a></li>
-                <li id="twopage" class="{{choose==2?'active':''}}"><a href="#">团队组成</a></li>
-                <li id="threepage" class="{{choose==3?'active':''}}"> <a href="#">小筑公告</a></li>
-                <li id="fourpage" class="{{choose==4?'active':''}}"><a href="/blog" target="_parent">小筑培训</a>
+                <li ng-class="{active:first}"><a href="/views/index.html" target="_self">小筑首页</a></li>
+                <li ng-class="{active:second}"><a href="#">团队组成</a></li>
+                <li ng-class="{active:third}"> <a href="#">小筑公告</a></li>
+                <li ng-class="{active:four}"><a href="/blog" target="_parent">小筑培训</a>
                     <ul>
-                        <li><a href="/views/lesson/choose-lessons.html" target="_parent">开始选课{{test}}</a></li>
+                        <li><a href="/views/lesson/choose-lessons.html" target="_parent">开始选课</a></li>
                         <li><a href="/views/lesson/show-lessons.html" target="_parent">选课计划</a></li>
                         <!--<li><a href="/views/week-report.html" target="_parent">开始选课</a></li>-->
                     </ul>
                 </li>
-                <li class="{{choose==5?'active':''}}"><a href="#">小筑博客</a>
+                <li ng-class="{active:five}"><a href="#">小筑博客</a>
+                    <ul>
+                        <li><a href="/blog/myblogs" target="_parent">个人博客</a></li>
+                        <li><a href="/blog/allblogs" target="_parent">小筑博客</a></li>
+                        <!--<li><a href="/views/week-report.html" target="_parent">开始选课</a></li>-->
+                    </ul>
                 </li>
-                <li id="fivepage" class="{{choose==6?'active':''}}"><a href="#" target="_parent">团队管理</a>
+                <li ng-class="{active:six}"><a href="#" target="_parent">团队管理</a>
                     <ul>
                         <li><a href="/views/week-report/report-view.html" target="_parent">周报提交</a></li>
                     </ul>

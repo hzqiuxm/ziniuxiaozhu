@@ -10,7 +10,6 @@
      */
     angular.module('zn-choose', [])
         .controller('chooseController', ['$scope', function ($scope) {
-            $scope.choose=4;
             $scope.four = true;
             $scope.template = { name: 'header.html', url: '/views/header.html'}
 
