@@ -28,16 +28,20 @@ $(function () {
             url: "/lesson/chooseLessons",
             async: false,
             //dataType: "json",
+            error: function () {location.href = "/views/week-report.html#lesson/choose-lessons";},
             success: function (response) {
                 //$('#events-table').bootstrapTable('refresh');
                 if (response.result == 99) {
                     swal("操作失败", "对不起，你还不是紫牛小筑的指定讲师，请联系管理员!", "error");
+                    return;
                 }
                 if (response.result == 95) {
                     swal("操作失败", "你还有未完成的培训课程，完成后才可以再次选课!", "error");
+                    return;
                 }
                 if (response.result == 97) {
                     swal("操作失败", "你已经没有剩余选课次数!", "error");
+                    return;
                 }
                 var json = eval(response);
                 swal("<<" + json.lessons[0].lesson_name + ">>", "选课成功！你还剩余" + json.chooseNum + "选课次数!", "success");
@@ -76,9 +80,41 @@ function stateFormatter(value, row, index){
     ].join('');
 }
 
+var PageSlider=function(){};
+PageSlider.prototype= {
+    ARClass: function (li) {//传入的是被选中的li
+        const prev = li.prev('.page-number');
+        const next = li.next('.page-number');
+        const number = $('.page-number');
+        //清除其他
+        number.css({width: '8px', height: '8px'}).children('a').css({cssText: 'display:none!important'});
+        li.css({width: '16px', height: '16px', color: '#fff'}).children('a').css({cssText: 'display:block!important'});
+        prev.css({width: '12px', height: '12px'});
+        next.css({width: '12px', height: '12px'});
+    },
+    checksession: function () {
+        $("#container").hide();
+        $.ajax({
+            url: '/weekreport/checksession',
+            type: 'POST',
+            dataType: 'html',
+            timeout: 1000,
+            error: function () {location.href = "/views/week-report.html#lesson/choose-lessons";},
+            success: function (result) {
+                if (result == "success") {
+                    $("#container").show();
+                } else {
+                    location.href = "/views/week-report.html#lesson/choose-lessons";
+                }
+            }
+        })
+    }
+};
+
+const pageslider=new PageSlider();
+pageslider.checksession();
 
 $(document).ready(function(){
-    const pageslider=new PageSlider();
     $("body").on("mouseover",".page-number",function(){pageslider.ARClass($(this));}).on("mouseleave","ul.pagination",function(){//离开ul
         const number=$('.page-number');
         pageslider.ARClass(number.eq(number.index($(".page-number.active"))));
@@ -88,16 +124,4 @@ $(document).ready(function(){
     })
 });
 
-var PageSlider=function(){};
-PageSlider.prototype={
-    ARClass:function(li){//传入的是被选中的li
-        const prev=li.prev('.page-number');
-        const next=li.next('.page-number');
-        const number=$('.page-number');
-        //清除其他
-        number.css({width:'8px', height:'8px'}).children('a').css({cssText:'display:none!important'});
-        li.css({width:'16px',height:'16px',color:'#fff'}).children('a').css({cssText:'display:block!important'});
-        prev.css({width:'12px',height:'12px'});
-        next.css({width:'12px',height:'12px'});
-    }
-};
+

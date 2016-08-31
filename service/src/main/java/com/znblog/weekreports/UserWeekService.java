@@ -19,9 +19,14 @@ public class UserWeekService {
 
     public UserWeekService(String Name){
         userBases=UserBase.dao.find("select user_pwd from user_base where user_name = ?",Name);
-        UserBase ub=userBases.get(0);
-        user_name=Name;
-        user_pwd=ub.getUserPwd();
+        if(userBases.size()>0){
+            UserBase ub=userBases.get(0);
+            user_name=Name;
+            user_pwd=ub.getUserPwd();
+        }else{
+            //没有这个用户
+
+        }
     }
 
     /**
@@ -48,7 +53,7 @@ public class UserWeekService {
      * @return 周报集合
      */
     public List<Map> GetReport(String name,String time,String start,int number){
-        List<ZnWeeklyReport> weekreports=null;
+        List<ZnWeeklyReport> weekreports;
 
         //查询部分
         if(time.equals("")) {//time 为空
@@ -95,11 +100,11 @@ public class UserWeekService {
             map.put("critic",comment.get("real_name").toString());
             map.put("reply","");
             if(comment.getDiscussReply()!=null)
-                map.put("reply",comment.getDiscussReply().toString());
+                map.put("reply",comment.getDiscussReply());
             map.put("delete","0");
-            if(comment.getDiscussCritic().toString().equals(user_name))
+            if(comment.getDiscussCritic().equals(user_name))
                 map.put("delete","1");
-            map.put("message",comment.getDiscussMessage().toString());
+            map.put("message",comment.getDiscussMessage());
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date=null;
@@ -233,9 +238,9 @@ public class UserWeekService {
             ZnWeeklyReport report=weekreports.get(0);
             Map<String, Object> map=new HashMap<String, Object>();
 
-            String thisweek=report.getReportThisWeek().toString().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
-            String nextweek=report.getReportNextWeek().toString().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
-            String difficulty=report.getReportDifficulty().toString().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
+            String thisweek=report.getReportThisWeek().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
+            String nextweek=report.getReportNextWeek().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
+            String difficulty=report.getReportDifficulty().replace("<br />","\n").replace("&lt;","<").replace("&gt;",">");
 
 
             map.put("thisweek",thisweek);
@@ -271,9 +276,16 @@ public class UserWeekService {
         return result > 0;
     }
 
+    /**
+     * 获取当前用户的真名函数
+     * @return 用户真名
+     */
     public String GetUser(){
-        UserBase getrealname=UserBase.dao.find("select real_name from user_base where user_name = ?",user_name).get(0);
-        String realName=getrealname.getRealName();
-        return realName;
+        try{
+            UserBase getrealname=UserBase.dao.find("select real_name from user_base where user_name = ?",user_name).get(0);
+            return getrealname.getRealName();
+        }catch (Exception e){
+            return "";
+        }
     }
 }

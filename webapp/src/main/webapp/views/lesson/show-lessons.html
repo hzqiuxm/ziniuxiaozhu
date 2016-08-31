@@ -6,24 +6,6 @@
 
     <script type="text/javascript" src="/commons/js/commoncss.js"></script>
     <script type="text/javascript" src="/commons/js/commonjs.js"></script>
-    <script>
-        function checksession(){
-            $.ajax({
-                url: '/weekreport/checksession',
-                type: 'POST',
-                dataType: 'html',
-                timeout: 1000,
-                error: function(){console.log('Error loading document');},
-                success: function(result){
-                    if(result=="success"){
-                    }else{
-                        location.href="/views/week-report.html#lesson/show-lessons";
-                    }
-                }
-            });
-        }
-        checksession();
-    </script>
 </head>
 <body ng-controller="chooseController">
     <div ng-include="'/views/top.html'"></div>
