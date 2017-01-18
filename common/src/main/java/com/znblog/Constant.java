@@ -42,4 +42,14 @@ public class Constant {
      * 最大上传尺寸
      */
     public static final Integer MAXPOSTSIZE=1024*1024*5;
+
+    /**
+     * 每日精进的hash english key
+     */
+    public static final String DAYDAYUP_ENGLISH_KEY="day:english";
+
+    /**
+     * 每日精进的hash chinese key
+     */
+    public static final String DAYDAYUP_CHINESE_KEY="day:chinese";
 }

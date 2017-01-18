@@ -8,7 +8,7 @@
      *
      */
     angular.module('zn-index', [])
-        .controller('nanController', ['$scope', function ($scope) {
+        .controller('nanController', ['$scope','$http', function ($scope, $http) {
             $scope.first = true;
             $scope.weekNans = [
                 {id: 1, english: "Life is made up of small pleasures.", chinese: "生活由各种微小的幸福构成"},
@@ -16,6 +16,23 @@
             ];
 
             $scope.thisweek = $scope.weekNans[1];
+            $scope.dailywords;
+
+            $http({
+                method: 'GET',
+                url: '/daydayup'
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.dailywords = response.data;
+
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log("调用daydayup接口失败!");
+            });
+
+
 
         }]);
 

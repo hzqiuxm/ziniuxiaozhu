@@ -56,6 +56,7 @@ public class CommonConfig extends JFinalConfig {
         me.add("/lesson", LessonController.class);
         me.add("/lessonPlan", LessonPlanController.class);
         me.add("/weekreport",WeekReportController.class);
+        me.add("/daydayup",DayDayUpController.class);
         //前后端路由分开
         //me.add(new 前端配置类());
         //me.add(new 后端配置类());
@@ -80,7 +81,8 @@ public class CommonConfig extends JFinalConfig {
         me.add(arp);
 
         //配置redis插件
-        RedisPlugin redisPlugin = new RedisPlugin("rp","192.168.10.56");
+        //用户每日精进的redis
+        RedisPlugin redisPlugin = new RedisPlugin("daydayup","120.26.231.72");
         me.add(redisPlugin);
 
         /* 2.1以后不需要配置表盒模型的映射关系
