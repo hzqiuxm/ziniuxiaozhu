@@ -3,8 +3,19 @@ allprojects{
     version = '1.0'
 }
 
+//buildscript {
+//    repositories {
+//        mavenCentral()//依赖Maven仓库
+//    }
+//    dependencies {
+//        //使用1.4.3.RELEASE版本的Spring框架
+//        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+//    }
+//}
+
 subprojects{
     apply plugin: 'java'
+//    apply plugin: 'spring-boot'
 
     ext {
         slf4jVersion = '1.7.7'
@@ -27,7 +38,8 @@ subprojects{
     dependencies {
 
 //        compile project(':webapp')
-
+        //spring boot
+//        compile("org.springframework.boot:spring-boot-starter-web")
         //<!-- Jfinal核心包 -->
         compile group: 'com.jfinal', name: 'jfinal', version: '2.2'
         //<!--支持文件上传功能 -->
@@ -52,6 +64,8 @@ subprojects{
         compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
         //<!-- Jedis与java集成包 -->
         compile group: 'redis.clients', name: 'jedis', version: '2.8.1'
+        //fts包，jedisPlugins非web启动时需要
+        compile group:'de.ruedigermoeller',name:'fst',version:'2.43'
         //<!--ActiveMQ -->
         compile group: 'org.springframework', name: 'spring-jms', version: '4.2.6.RELEASE'
         compile group: 'org.apache.activemq', name: 'activemq-pool', version: '5.13.3'
@@ -78,10 +92,14 @@ subprojects{
         compile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
         //jstl模板解析相关，只在紫牛小组老版本过渡时期使用
         compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+        
         //单元测试
         testCompile group: 'junit', name: 'junit', version: '4.12'
+//        testCompile('org.springframework.boot:spring-boot-starter-test')
         // https://mvnrepository.com/artifact/de.ruedigermoeller/fst
 //        compile group: 'de.ruedigermoeller', name: 'fst', version: '2.45'
+
 
     }
 }
