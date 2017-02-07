@@ -57,6 +57,7 @@ public class CommonConfig extends JFinalConfig {
         me.add("/lessonPlan", LessonPlanController.class);
         me.add("/weekreport",WeekReportController.class);
         me.add("/daydayup",DayDayUpController.class);
+        me.add("/signup",SignUpLessonsController.class);
         //前后端路由分开
         //me.add(new 前端配置类());
         //me.add(new 后端配置类());
