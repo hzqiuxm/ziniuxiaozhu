@@ -14,7 +14,7 @@ public class BlogController extends Controller {
         System.out.println("welcome to 紫牛小筑");
         render("index.jsp");
 
-        System.out.println("wecome visited 紫牛小筑");
+        System.out.println("welcome visited 紫牛小筑");
     }
 
     public void myblogs(){
