@@ -21,9 +21,9 @@
 })(angular)
 $("#confirm").on("click",function(){//登录
     var url="/views/week-report/report-view.html";
-    if(window.location.hash!=""){
-        url="/views/"+window.location.hash.replace("#/","")+".html";
-    }
+    //if(window.location.hash!=""){
+    //    url="/views/"+window.location.hash.replace("#/","")+".html";
+    //}
     $.ajax({
         url: '/weekreport/login',
         type: 'POST',

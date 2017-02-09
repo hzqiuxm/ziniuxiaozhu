@@ -11,7 +11,7 @@
         .controller('chooseController', ['$scope', function ($scope) {
             $scope.choose=6;
 
-            $scope.five = true;
+            $scope.six = true;
             $scope.template = { name: 'header.html', url: '/views/header.html'}
 
         }]);

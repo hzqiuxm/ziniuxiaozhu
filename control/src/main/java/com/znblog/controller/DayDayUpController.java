@@ -1,9 +1,11 @@
 package com.znblog.controller;
 
+import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
 import com.znblog.model2json.DailyWords;
 import com.znblog.redis.DayDayUpService;
 import org.apache.log4j.Logger;
+import org.springframework.util.StringUtils;
 
 /**
  * Copyright © 2016年 author. All rights reserved.
@@ -47,4 +49,32 @@ public class DayDayUpController extends Controller {
 
     }
 
+    /**
+     * 每日精进句子管理页面
+     */
+    @Clear(SessionInterceptor.class)
+    public void wordsManage() {
+        render("words-manage.html");
+    }
+
+    /**
+     * 获取每日精进句子列表
+     */
+    @Clear(SessionInterceptor.class)
+    public void wordsList(){
+        renderJson(ddus.getDayWordsList());
+    }
+
+    /**
+     * 新增句子
+     */
+    @Clear(SessionInterceptor.class)
+    public void addWords(){
+        String english = getPara("english");
+        String chinese = getPara("chinese");
+        if (StringUtils.isEmpty(english) || StringUtils.isEmpty(chinese))
+            renderJson("success",false);
+        ddus.addWords(english, chinese);
+        renderJson("success",true);
+    }
 }
