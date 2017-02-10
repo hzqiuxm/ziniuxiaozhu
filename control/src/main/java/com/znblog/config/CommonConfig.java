@@ -5,6 +5,7 @@ import com.jfinal.config.*;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.render.ViewType;
 import com.znblog.controller.*;
 import com.znblog.model._MappingKit;
@@ -55,6 +56,8 @@ public class CommonConfig extends JFinalConfig {
         me.add("/lesson", LessonController.class);
         me.add("/lessonPlan", LessonPlanController.class);
         me.add("/weekreport",WeekReportController.class);
+        me.add("/daydayup",DayDayUpController.class);
+        me.add("/signup",SignUpLessonsController.class);
         //前后端路由分开
         //me.add(new 前端配置类());
         //me.add(new 后端配置类());
@@ -77,6 +80,11 @@ public class CommonConfig extends JFinalConfig {
         // 配置ActiveRecord插件
         ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
         me.add(arp);
+
+        //配置redis插件
+        //用户每日精进的redis
+        RedisPlugin redisPlugin = new RedisPlugin("daydayup","120.26.231.72");
+        me.add(redisPlugin);
 
         /* 2.1以后不需要配置表盒模型的映射关系
         //建立表和模型的映射关系，例如：映射user_base表到 UserBase模型
@@ -102,6 +110,7 @@ public class CommonConfig extends JFinalConfig {
 
 //        可以配置多个拦截器，先调用的后完成,controller只执行一次
         me.add(new GlobaInterceptor());
+        me.add(new SessionInterceptor());
     }
 
     /**

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ddu-wordsmanage">
+<head>
+    <meta charset="UTF-8">
+    <title>每日精进句子管理</title>
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstracptable/bootstrap-table.min.css">
+
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+    <style>
+        body{font:11px/1.8em 'Open Sans', Arial, Tahoma, sans-serif;}
+        .container{width:auto;}
+        h1{margin: 0px;}
+        h2{text-align: center;margin-top: -10px;margin-bottom:20px;font-size: 30px;}
+        #addWords{float: right;font-size: 26px;margin-top: 8px;}
+        #tabId td{font-size: 13px;vertical-align: middle;}
+        #tabId thead{font-size: 15px;}
+        p{margin: 0;padding: 3px 0;text-align: center;font-size: 15px;
+            height: 30px;border: 1px solid #ccc;background-color: #eee;}
+        .form-control{resize: none;border-radius: 0px;}
+    </style>
+</head>
+<body ng-controller="daydayupController">
+    <div ng-include="'/views/top.html'"></div>
+
+    <div id="container">
+        <div class="container">
+            <h2>
+                【每日精进句子列表】
+                <span id="addWords" class="glyphicon glyphicon-plus"></span>
+            </h2>
+            <table id="tabId" data-toggle="table" data-url="/daydayup/wordsList" data-method="get"
+                   data-striped="true">
+                <thead>
+                <tr>
+                    <th data-field="english" data-align="center" data-width="50%">英文</th>
+                    <th data-field="chinese" data-align="center" data-width="50%">中文</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+<script src="/views/js/common/words-manage.js"></script>
+</body>
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table-zh-CN.min.js"></script>
+<script src="/plugins/bootbox/bootbox-4.3.0.min.js"></script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zn-choose">
+<head>
+    <meta charset="UTF-8">
+    <title>紫牛小筑周报系统</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+
+</head>
+<body ng-controller="chooseController">
+<div ng-include="'/views/top.html'"></div>
+<div id="container">
+
+    <div id="user">
+        <div id="user-hello">
+            <span id="user-text"></span>
+        </div>
+        <div id="user-control">
+            <span id="logout">退出登录</span>
+            <span id="personal"><a href="/views/personal/changepwd.html">修改密码</a></span>
+        </div>
+    </div>
+    <div id="entry">
+        <div id="entry-border">
+            <div id="entry-padding">
+                <textarea class="judge-textarea" name="thisweek" id="thisweek" cols="30" rows="10" placeholder="本周工作..."></textarea>
+                <div class="judge-toolbar"><span class="can-input"></span></div>
+                <textarea class="judge-textarea" name="nextweek" id="nextweek" cols="30" rows="10" placeholder="下周计划..."></textarea>
+                <div class="judge-toolbar"><span class="can-input"></span></div>
+                <textarea class="judge-textarea" name="difficulty" id="difficulty" cols="30" rows="10" placeholder="遇到的困难..."></textarea>
+                <div class="judge-toolbar"><span class="can-input"></span></div>
+                <div id="entry-toolbar">
+                    <div id="entry-toolbar-left"></div>
+                    <div id="entry-toolbar-right">
+                        <div id="entry-toolbar-share">
+                            <input type="button" value="分享" id="share">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="last-week"><span id="last-week-text">上周周报未提交：</span></div>
+
+    <div id="search-div">
+        <span>名字搜索：</span>
+        <input type="text" id="search-name" placeholder="在此输入">
+        <input type="date" id="search-datetime">
+        <input type="button" id="flash" value="刷新">
+    </div>
+
+    <div id="reports"></div>
+
+    <div id="show-more" data-number="0" data-name="" data-time="">
+        查看更多动态
+    </div>
+
+    <div class="report-change" style="display:none;">
+        <div class="report-change-control">
+            <div class="report-change-head">
+                <div class="report-change-head-title">编辑动态</div>
+                <div class="report-change-head-close"><i></i></div>
+            </div>
+            <div class="report-change-main">
+                <div class="entry-textarea">
+                    <textarea class="judge-textarea" name="this-week-change" id="this-week-change" cols="30" rows="10"></textarea>
+                    <div class="judge-toolbar"><span class="can-input"></span></div>
+                </div>
+                <div class="entry-textarea">
+                    <textarea class="judge-textarea" name="next-week-change" id="next-week-change" cols="30" rows="10"></textarea>
+                    <div class="judge-toolbar"><span class="can-input"></span></div>
+                </div>
+                <div class="entry-textarea">
+                    <textarea class="judge-textarea" name="difficulty-change" id="difficulty-change" cols="30" rows="10"></textarea>
+                    <div class="judge-toolbar"><span class="can-input"></span></div>
+                </div>
+            </div>
+            <div class="report-change-foot">
+                <div class="report-change-change">修改</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<link rel="stylesheet" href="/commons/css/weekreport.css">
+<script src="/views/js/common/report-view.js"></script>
+

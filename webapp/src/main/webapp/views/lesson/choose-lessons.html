@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zn-choose">
+<head>
+    <meta charset="UTF-8">
+    <title>紫牛小筑选课系统</title>
+
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+</head>
+<body ng-controller="chooseController">
+    <div ng-include="'/views/top.html'"></div>
+
+    <div id="container">
+        <!--bootstrap-->
+        <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/plugins/bootstracptable/bootstrap-table.min.css">
+        <link rel="stylesheet" href="/plugins/bootstrapdatepicker/bootstrap-datepicker-1.3.1.min.css">
+        <link rel="stylesheet" href="/plugins/sweetalert/sweetalert.css">
+
+        <style>
+            .container{width:auto;}
+            h1{margin: 0px;}
+            body{font:11px/1.8em 'Open Sans', Arial, Tahoma, sans-serif;}
+        </style>
+
+        <div class="container">
+            <div id="toolbar">
+                <div class="row">
+                    <div id="select-button" class="btn btn-primary">我要选课</div>
+                </div>
+            </div>
+            <table id="lesson_table"
+                   class="table table-striped"
+                   data-toggle="table"
+                   data-toolbar="#toolbar"
+                   data-search="true"
+                   data-show-refresh="true"
+                   data-show-toggle="true"
+                   data-show-columns="true"
+                   data-show-export="true"
+                   data-detail-view="true"
+                   data-detail-formatter="detailFormatter"
+                   data-minimum-count-columns="2"
+                   data-show-pagination-switch="true"
+                   data-page-list="[10, 15, 20, 50, All]"
+                   data-pagination="true"
+                   data-page-size="10"
+                   data-id-field="id"
+                   data-show-footer="true"
+                   data-url="/lesson/getLessons"
+            >
+                <thead>
+                <tr>
+                    <th data-field="id" data-align="center" >课程编号</th>
+                    <th data-field="lesson_name" data-align="center">课程名称</th>
+                    <th data-field="lesson_type" data-align="center" data-sortable="true" >课程类型</th>
+                    <th data-field="state" data-align="center" data-formatter="stateFormatter">课程状态</th>
+                </tr>
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+<!--bootstrap-->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table.min.js"></script>
+<script src="/plugins/bootstracptable/bootstrap-table-zh-CN.min.js"></script>
+<script src="/plugins/bootstrapdatepicker/bootstrap-datepicker-1.3.1.min.js"></script>
+<script src="/plugins/bootstrapdatepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/plugins/bootbox/bootbox-4.3.0.min.js"></script>
+
+<script src="/views/js/common/choose-lessons.js"></script>
+<link rel="stylesheet" href="/commons/css/weekreport.css">
+
