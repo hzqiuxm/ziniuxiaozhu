@@ -3,22 +3,22 @@
  */
 
 (function (angular) {
-    'use strict'
+    'use strict';
     /**
      * 用于显示课程页面
      *
      */
     angular.module('zn-choose', [])
         .controller('chooseController', ['$scope', function ($scope) {
-            $scope.choose=4;
+            $scope.choose = 4;
             $scope.four = true;
-            $scope.template = { name: 'header.html', url: '/views/header.html'}
+            $scope.template = {name: 'header.html', url: '/views/header.html'}
         }]);
 })(angular);
 
 function detailFormatter(index, row) {
     var html = [];
-    html.push('<div class="text-left"><span class="text-primary ">'+ "课程描述:" + '</span><div class="text-muted">' + row.lesson_des +'</div></div>' );
+    html.push('<div class="text-left"><span class="text-primary ">' + "课程描述:" + '</span><div class="text-muted">' + row.lesson_des + '</div></div>');
     return html.join('');
 }
 
@@ -33,46 +33,50 @@ function responseHandler(res) {
     return res;
 }
 
-function stateFormatter(value, row, index){
+function stateFormatter(value, row, index) {
     var icon = row.state === '0' ? 'glyphicon glyphicon-remove lesson_no' : 'glyphicon glyphicon-ok lesson_yes';
     return [
         '<div class=" ' + icon + '"></div> '
     ].join('');
 }
 
-$(function() {
+$(function () {
     $('#lesson_plan').on('dbl-click-row.bs.table', function (e, row, $element) {
-        if(row.state==='0'){
+        if (row.state === '0') {
             bootbox.dialog({
-                message : "<div><input type='text' id='lesson_title' class='form-control' placeholder='课程名称'></div>"+
+                message: "<div><input type='text' id='lesson_title' class='form-control' placeholder='课程名称'></div>" +
                 "<div style='margin-top:15px;'>课程描述:<textarea id='lesson_des' class='form-control' rows='3'></textarea></div>",
-                title : "完善课程信息",
-                buttons : {
-                    success : {
-                        label : "确定",
-                        callback : function() {
+                title: "完善课程信息",
+                buttons: {
+                    success: {
+                        label: "确定",
+                        callback: function () {
                             var lessonTitle = $("#lesson_title").val();
                             var lessonDes = $("#lesson_des").val();
                             $.ajax({
                                 url: '/lessonPlan/modifyPlan',
                                 type: 'POST',
-                                data: {'id':row.id ,'lessonTitle':lessonTitle, 'lessonDes': lessonDes},
-                                error: function () {location.href = "/views/week-report.html#lesson/show-lessons";}
+                                data: {'id': row.id, 'lessonTitle': lessonTitle, 'lessonDes': lessonDes},
+                                error: function () {
+                                    sessionStorage.setItem('jumpUrl', '/views/lesson/show-lessons.html');
+                                    location.href = "/views/week-report.html";
+                                }
                             }).done(function (datas) {
-                                if(datas.usercheck==false){//如果不是本人的课程
+                                if (datas.usercheck == false) {//如果不是本人的课程
                                     swal("操作失败", "对不起，只能修改自己的课程内容！", "error");
-                                }else{
-                                    if(datas.success){
+                                } else {
+                                    if (datas.success) {
                                         window.location.reload();
-                                    }else{
+                                    } else {
                                         swal("操作失败", "出现未知修改错误！请联系管理员！", "error");
                                     }
                                 }
                             });
                         }
                     },
-                    "取消" : {
-                        callback : function() {}
+                    "取消": {
+                        callback: function () {
+                        }
                     }
                 }
             });
@@ -81,31 +85,36 @@ $(function() {
 });
 
 
-var PageSlider=function(){};
-PageSlider.prototype={
-    ARClass:function(li){//传入的是被选中的li
-        const prev=li.prev('.page-number');
-        const next=li.next('.page-number');
-        const number=$('.page-number');
+var PageSlider = function () {
+};
+PageSlider.prototype = {
+    ARClass: function (li) {//传入的是被选中的li
+        var prev = li.prev('.page-number');
+        var next = li.next('.page-number');
+        var number = $('.page-number');
         //清除其他
-        number.css({width:'8px', height:'8px'}).children('a').css({cssText:'display:none!important'});
-        li.css({width:'16px',height:'16px',color:'#fff'}).children('a').css({cssText:'display:block!important'});
-        prev.css({width:'12px',height:'12px'});
-        next.css({width:'12px',height:'12px'});
+        number.css({width: '8px', height: '8px'}).children('a').css({cssText: 'display:none!important'});
+        li.css({width: '16px', height: '16px', color: '#fff'}).children('a').css({cssText: 'display:block!important'});
+        prev.css({width: '12px', height: '12px'});
+        next.css({width: '12px', height: '12px'});
     },
-    checksession:function(){
+    checksession: function () {
         $("#container").hide();
         $.ajax({
             url: '/weekreport/checksession',
             type: 'POST',
             dataType: 'html',
             timeout: 1000,
-            error: function(){location.href="/views/week-report.html#lesson/show-lessons";},
-            success: function(result){
-                if(result=="success"){
+            error: function () {
+                sessionStorage.setItem('jumpUrl', '/views/lesson/show-lessons.html');
+                location.href = "/views/week-report.html";
+            },
+            success: function (result) {
+                if (result == "success") {
                     $("#container").show();
-                }else{
-                    location.href="/views/week-report.html#lesson/show-lessons";
+                } else {
+                    sessionStorage.setItem('jumpUrl','/views/lesson/show-lessons.html');
+                    location.href = "/views/week-report.html";
                 }
             }
         });
@@ -113,15 +122,17 @@ PageSlider.prototype={
 };
 
 
-const pageslider=new PageSlider();
+var pageslider = new PageSlider();
 pageslider.checksession();
 
-$(document).ready(function(){
-    $("body").on("mouseover",".page-number",function(){pageslider.ARClass($(this));}).on("mouseleave","ul.pagination",function(){//离开ul
-        const number=$('.page-number');
+$(document).ready(function () {
+    $("body").on("mouseover", ".page-number", function () {
+        pageslider.ARClass($(this));
+    }).on("mouseleave", "ul.pagination", function () {//离开ul
+        var number = $('.page-number');
         pageslider.ARClass(number.eq(number.index($(".page-number.active"))));
-    })
-    $(".container").bind('DOMNodeInserted',function(){
+    });
+    $(".container").bind('DOMNodeInserted', function () {
         pageslider.ARClass($(".page-number.active"));
-    })
+    });
 });

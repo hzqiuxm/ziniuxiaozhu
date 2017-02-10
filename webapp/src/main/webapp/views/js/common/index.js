@@ -4,8 +4,18 @@
 $(function () {
     $('.sociable li a img').tipsy({gravity: 'n'});
 });
-$(window).on('load',function () {
+$(window).on('load', function () {
     $('.flexslider').flexslider();
+
+    $('body').on('click', '.jump', function () {
+        //遇到如果没有登录，会跳转到登录页面的情况
+        //根据session来获取当时点击了的页面，登录后可以自动跳转过去
+        //在top.html中添加class jump和设置data-jump跳转地址
+        if(this.getAttribute('data-jump')){
+            var jumpUrl = this.getAttribute('data-jump');
+            sessionStorage.setItem('jumpUrl',jumpUrl);
+        }
+    });
 });
 
 jQuery(function ($) {
