@@ -53,7 +53,7 @@ var Bind = function () {
             dataType: 'html',
             timeout: 1000,
             error: function () {
-                alert("登出失败");
+                swal("登出失败");
                 ReportViews.JumpTo();
             },
             success: function () {
@@ -85,10 +85,10 @@ var Bind = function () {
                     ReportViews.Clear().LoadReports("5");
                 } else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else
-                        alert("周报提交出错！！");
+                        swal("周报提交出错！！");
                 }
             }
         });
@@ -119,10 +119,10 @@ var Bind = function () {
                     div.remove();
                 } else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else
-                        alert("周报提交出错！！");
+                        swal("周报提交出错！！");
                 }
             }
         });
@@ -152,10 +152,10 @@ var Bind = function () {
                     $("#" + reportid).replaceWith(ReportViews.MakeWholeReport(result.data));
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else
-                        alert("周报提交出错！！");
+                        swal("周报提交出错！！");
                 }
             }
         });
@@ -186,10 +186,10 @@ var Bind = function () {
                     $("#" + reportid).replaceWith(ReportViews.MakeWholeReport(result.data));
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else {
-                        alert("评论出错！！");
+                        swal("评论出错！！");
                     }
                 }
             }
@@ -219,10 +219,10 @@ var Bind = function () {
                     $("#" + reportid).replaceWith(ReportViews.MakeWholeReport(result.data));
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else {
-                        alert("删除评论出错！！");
+                        swal("删除评论出错！！");
                     }
                 }
             }
@@ -255,10 +255,10 @@ var Bind = function () {
                 }
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else {
-                        alert("获取周报内容出错！！");
+                        swal("获取周报内容出错！！");
                     }
                 }
 
@@ -296,10 +296,10 @@ var Bind = function () {
                 }
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         ReportViews.JumpTo();
                     } else {
-                        alert("删除评论出错！！");
+                        swal("删除评论出错！！");
                     }
                 }
             }
@@ -377,7 +377,7 @@ ReportView.prototype = {
                     location.href = "/views/week-report.html";
                 }
                 if (result.result != 0) {//获取失败
-                    alert("登录超时，请重新登陆！！");
+                    swal("登录超时，请重新登陆！！");
                     ReportViews.JumpTo();
                 }
                 else {//获取成功
@@ -443,10 +443,10 @@ ReportView.prototype = {
                 }
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         location.href = "/views/week-report.html";
                     } else {
-                        alert("删除评论出错！！");
+                        swal("删除评论出错！！");
                     }
                 }
             }
@@ -558,10 +558,10 @@ ReportView.prototype = {
                 }
                 else {
                     if (result.result == 1) {
-                        alert("登录超时，请重新登陆！！");
+                        swal("登录超时，请重新登陆！！");
                         location.href = "/views/week-report.html";
                     } else {
-                        alert("删除评论出错！！");
+                        swal("删除评论出错！！");
                     }
                 }
             }

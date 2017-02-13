@@ -87,18 +87,19 @@ textarea.form-control{height:auto;}
 #show-more{text-align: center;vertical-align:middle;line-height: 40px;font-size: 14px;border-radius: 2px;box-shadow: 0 2px 6px 0 rgba(0,0,0,.15);margin-top: 15px;height: 40px;background-color: #1565c0;color:#fff;}
 #show-more:hover{cursor:pointer;background-color: #156eca;}
 .can-input{float:right;}
-#search-div{padding:10px 0px;}
+#search-div{padding:10px 0;}
 /*#flash{ background: url("/views/img/patterns/hash.png") repeat scroll left top rgba(0, 0, 0, 0.01); color: #666; border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px; box-shadow: 0 1px 1px #C7C7C7; -webkit-box-shadow:  0 1px 1px #C7C7C7; -moz-box-shadow:  0 1px 1px #C7C7C7; behavior: url(/views/js/PIE.htc); display: inline-block; margin-bottom: 3px; padding: 2px 6px; text-shadow: 0 1px 1px #FFFFFF; }*/
-#center-div {width: 230px;box-shadow:0 2px 6px 0 rgba(0,0,0,.15);padding:10px;color:#bbb;}
-#center-div i{font:normal normal normal 14px/1 FontAwesome;padding-right:4px;}
+#week-report-div{height:calc(100vh - 300px);display: flex;}
+#center-div {width: 230px;box-shadow:0 2px 6px 0 rgba(0,0,0,.15);padding:10px;color:#bbb;text-align: center;margin: auto;}
+#center-div i{padding-right:4px;}
 .login-input{height:44px;border:1px solid #bbb;border-radius:3px;line-height: 44px;}
-#login-login i::before{content:"\f090";}
-#login-pwd i::before{content:"\f11c";}
+#login-login i::before{content:"";display: inline-block;width: 16px;height: 16px;background: url("/views/images/report/login.png");position: relative;top: 3px;left: 1px;}
+#login-pwd i::before{content:"";display: inline-block;width: 15px;height: 15px;background: url("/views/images/report/pwd.png");position: relative;top: 2px;left: 1px;}
 #entry-padding textarea,.report-change-main textarea{height:48px;}
 #entry-padding textarea:focus,.report-change-main textarea:focus{height:216px;}
-#last-week{margin: 5px 0px;}
+#last-week{margin: 5px 0;}
 
-ul.pagination li a{background: none !important;  border: 0px !important;  padding: 0px !important;margin: 0px !important;box-shadow: none !important;text-shadow: 0 0px 0px #fff !important;text-decoration:none !important;float:none !important;}
+ul.pagination li a{background: none !important;  border: 0 !important;  padding: 0 !important;margin: 0 !important;box-shadow: none !important;text-shadow: 0 0 0 #fff !important;text-decoration:none !important;float:none !important;}
 .page-number a{display: none !important;color:#fff !important;}
 .active a{display: block !important;color:#fff;}
 ul.pagination>li{display: inline-block;text-align: center;vertical-align: middle;}

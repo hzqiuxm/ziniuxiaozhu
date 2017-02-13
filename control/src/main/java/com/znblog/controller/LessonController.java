@@ -38,7 +38,7 @@ public class LessonController extends Controller {
         ChooseLesson chooseLesson = new ChooseLesson();
 
         //获取realname
-        List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name"));
+        List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name").toString());
         String userName = userBase.get(0).getRealName();
 
         //检查讲师是否是紫牛小筑的注册讲师
