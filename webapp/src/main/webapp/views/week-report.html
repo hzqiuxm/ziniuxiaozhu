@@ -5,32 +5,30 @@
   <title>紫牛小筑周报系统登录</title>
   <script type="text/javascript" src="/commons/js/commoncss.js"></script>
   <script type="text/javascript" src="/commons/js/commonjs.js"></script>
-
 </head>
 <body ng-controller="chooseController">
 <div ng-include="'/views/top.html'"></div>
 
 <div id="container">
-
-    <center>
-      <div id="center-div">
-        <span id="loaderror" style="display:none;color:red;">账号或密码错误！</span>
-        <br>
-        <div class="login-input" id="login-login">
-          <i></i>
-          <span>登录：</span><input type="text" id="inputid">
-        </div>
-        <br>
-        <div class="login-input" id="login-pwd">
-          <i></i>
-          <span>密码：</span><input type="password" id="inputpwd" onkeydown="if(event.keyCode==13){$('#confirm').trigger('click')}"></div>
-        <br>
-        <div>
-            <span id="confirm" >确定</span>
-            <span id="cancel">取消</span>
-            </div>
+      <div id="week-report-div">
+          <div id="center-div">
+              <span id="loaderror" style="display:none;color:red;">账号或密码错误！</span>
+              <br>
+              <div class="login-input" id="login-login">
+                  <i></i>
+                  <span>登录：</span><input type="text" id="inputid">
+              </div>
+              <br>
+              <div class="login-input" id="login-pwd">
+                  <i></i>
+                  <span>密码：</span><input type="password" id="inputpwd" onkeydown="if(event.keyCode==13){$('#confirm').trigger('click')}"></div>
+              <br>
+              <div>
+                  <span id="confirm" >确定</span>
+                  <span id="cancel">取消</span>
+              </div>
+          </div>
       </div>
-    </center>
 </div>
 
 

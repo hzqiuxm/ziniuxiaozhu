@@ -30,7 +30,7 @@ public class LessonPlanController extends Controller {
 		boolean isUpdate = false;
 		LessonsPlan plan = LessonsPlan.dao.findById(id);
 		//获取realname 判断是不是本人的课程
-		List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name"));
+		List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name").toString());
 		String userName = userBase.get(0).getRealName();
 
 		if(null !=plan&&plan.getLessonTeacher().equals(userName)){

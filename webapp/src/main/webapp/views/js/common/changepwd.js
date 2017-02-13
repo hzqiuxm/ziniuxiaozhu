@@ -50,7 +50,7 @@ var Bind = function () {
     var b = $("body");
     b.on("click", "#changepwd", function () {
         if ($("#inputnewpwd").val() != $("#inputnewpwd2").val()) {
-            alert("两次输入的密码不同，请重新输入");
+            swal("两次输入的密码不同，请重新输入");
         } else {
             $.ajax({
                 url: '/weekreport/changepwd',
@@ -76,15 +76,15 @@ var Bind = function () {
 
 
                     if (result.result == 0) {//成功修改密码，重新登陆
-                        alert("修改成功！");
+                        swal("修改成功！");
                         location.href = "/views/week-report.html";
                     }
                     else {
                         if (result.result == 1) {
-                            alert("登录超时，请重新登陆！！");
+                            swal("登录超时，请重新登陆！！");
                             location.href = "/views/week-report.html";
                         } else
-                            alert("修改密码出错！！");
+                            swal("修改密码出错！！");
                     }
                 }
             });
@@ -97,7 +97,7 @@ var Bind = function () {
             dataType: 'html',
             timeout: 1000,
             error: function () {
-                alert("登出失败");
+                swal("登出失败");
                 sessionStorage.setItem('jumpUrl', '/views/personal/changepwd.html');
                 location.href = "/views/week-report.html";
             },

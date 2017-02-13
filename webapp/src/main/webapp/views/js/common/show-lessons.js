@@ -68,7 +68,10 @@ $(function () {
                                     if (datas.success) {
                                         window.location.reload();
                                     } else {
-                                        swal("操作失败", "出现未知修改错误！请联系管理员！", "error");
+                                        swal({title:"操作失败", text:"出现未知修改错误！尝试重新登陆！</br>如果依旧出错，请联系管理员！",html:true,type:"error"},function(isConfirm){
+                                            sessionStorage.setItem('jumpUrl', '/views/lesson/show-lessons.html');
+                                            location.href="/views/week-report.html";
+                                        });
                                     }
                                 }
                             });
