@@ -3,6 +3,7 @@ package com.znblog.controller;
 
 import com.jfinal.core.Controller;
 import com.znblog.model.LessonsPlan;
+import com.znblog.model.UserBase;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -28,10 +29,17 @@ public class LessonPlanController extends Controller {
 		String lessonDes = getPara("lessonDes");
 		boolean isUpdate = false;
 		LessonsPlan plan = LessonsPlan.dao.findById(id);
-		if(null !=plan){
+		//获取realname 判断是不是本人的课程
+		List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name").toString());
+		String userName = userBase.get(0).getRealName();
+
+		if(null !=plan&&plan.getLessonTeacher().equals(userName)){
 			plan.set("lesson_title", lessonTitle);
 			plan.set("lesson_des", lessonDes);
 		    isUpdate = plan.update();
+		}else{
+			renderJson("usercheck",false);
+			return;
 		}
 		renderJson("success", isUpdate);
 	}

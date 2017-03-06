@@ -3,9 +3,10 @@
  */
 //公用的JS
 
-document.write('<script src="/views/js/jquery-1.7.2.min.js"></script>');
+//document.write('<script src="/views/js/jquery-1.7.2.min.js"></script>');
+
+document.write('<script src="/bower_components/jquery/dist/jquery.js"></script>')
 document.write('<script src="/bower_components/angular/angular.min.js"></script>');
-//document.write('<script src="/bower_components/jquery/dist/jquery.js"></script>')
 document.write('<script src="/views/js/nav-small.js"></script>');
 document.write('<script src="/views/js/jquery.trigger.js"></script>');
 document.write('<script src="/views/js/scrolltop.js"></script>');

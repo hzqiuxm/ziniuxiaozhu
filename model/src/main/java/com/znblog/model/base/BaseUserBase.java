@@ -145,12 +145,20 @@ public abstract class BaseUserBase<M extends BaseUserBase<M>> extends Model<M> i
 		return get("notes");
 	}
 
-	public void setNoweekreportTimes(java.lang.Integer noweekreportTimes) {
-		set("noweekreport_times", noweekreportTimes);
+	public void setNoWeeklyReportTimes(java.lang.Integer noWeeklyReportTimes) {
+		set("no_weekly_report_times", noWeeklyReportTimes);
 	}
 
-	public java.lang.Integer getNoweekreportTimes() {
-		return get("noweekreport_times");
+	public java.lang.Integer getNoWeeklyReportTimes() {
+		return get("no_weekly_report_times");
+	}
+
+	public void setWeeklyReportPower(java.lang.Boolean weeklyReportPower) {
+		set("weekly_report_power", weeklyReportPower);
+	}
+
+	public java.lang.Boolean getWeeklyReportPower() {
+		return get("weekly_report_power");
 	}
 
 }

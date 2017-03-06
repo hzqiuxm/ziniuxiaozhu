@@ -96,6 +96,6 @@
     ].join('');
   }
 </script>
-<script src="/commons/js/lessons.js"></script>
+<script src="/views/js/common/lessons.js"></script>
 </body>
 </html>

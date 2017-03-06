@@ -5,6 +5,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.znblog.model.Lessons;
 import com.znblog.model.LessonsPlan;
+import com.znblog.model.UserBase;
 import com.znblog.service.ChooseLesson;
 import com.znblog.service.UserService;
 import org.apache.log4j.Logger;
@@ -35,8 +36,12 @@ public class LessonController extends Controller {
     public void chooseLessons(){
         UserService userService = new UserService();
         ChooseLesson chooseLesson = new ChooseLesson();
+
+        //获取realname
+        List<UserBase> userBase = UserBase.dao.find("select * from user_base where user_name = ?",getSessionAttr("name").toString());
+        String userName = userBase.get(0).getRealName();
+
         //检查讲师是否是紫牛小筑的注册讲师
-        String userName = getPara("name");
 
         System.out.println("------------------------------"+userName);
         int checkuser = userService.checkUser(userName);

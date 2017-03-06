@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zn-choose">
+<head>
+    <meta charset="UTF-8">
+    <title>紫牛小筑密码修改</title>
+
+    <script type="text/javascript" src="/commons/js/commoncss.js"></script>
+    <script type="text/javascript" src="/commons/js/commonjs.js"></script>
+
+
+
+
+</head>
+<body ng-controller="chooseController">
+<div ng-include="'/views/top.html'"></div>
+
+<div id="container">
+    <div id="user">
+        <div id="user-control">
+            <span id="logout">退出登录</span>
+            <span id="personal"><a href="/views/week-report/report-view.html">周报界面</a></span>
+        </div>
+    </div>
+    <div>
+        <div id="center-div">
+            <span id="loaderror" style="font-size: 16px;">修改密码</span>
+            <br />
+
+            <div class="login-input" id="login-oldpwd">
+                <span>旧密码：</span><input type="password" id="inputoldpwd">
+            </div>
+            <br />
+
+            <div class="login-input" id="login-newpwd">
+                <span>新密码：</span><input type="password" id="inputnewpwd">
+            </div>
+            <br />
+
+            <div class="login-input" id="login-newpwd2">
+                <span>重新输入：</span><input type="password" id="inputnewpwd2" onkeydown="if(event.keyCode==13){$('#changepwd').trigger('click')}">
+            </div>
+            <br />
+
+            <div>
+                <span id="changepwd" >确定</span>
+                <span id="cancel">取消</span>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>
+
+<link rel="stylesheet" href="/commons/css/weekreport.css">
+<script src="/views/js/common/changepwd.js"></script>
+
